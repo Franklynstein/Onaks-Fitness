@@ -1,23 +1,29 @@
-import Header from './components/Header'
-import HeroSection from './components/HeroSection'
+import TopSection from './components/TopSection'
 import CoachingSection from './components/CoachingSection'
-import FeaturesSection from './components/FeaturesSection'
+import StepsSection from './components/StepsSection'
+import SignupFormSection from './components/SignupFormSection'
+import BenefitsSection from './components/BenefitsSection'
 import ResourcesSection from './components/ResourcesSection'
-import TestimonialsSection from './components/TestimonialsSection'
-import AboutSection from './components/AboutSection'
+import TransformationSection from './components/TransformationSection'
+import JourneySection from './components/JourneySection'
+import ReviewsSection from './components/ReviewsSection'
+import FAQSection from './components/FAQSection'
 import Footer from './components/Footer'
 
 function App() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
+      <TopSection />
       <main>
-        <HeroSection />
         <CoachingSection />
-        <FeaturesSection />
+        <StepsSection />
+        <SignupFormSection />
+        <BenefitsSection />
         <ResourcesSection />
-        <TestimonialsSection />
-        <AboutSection />
+        <TransformationSection />
+        <JourneySection />
+        <ReviewsSection />
+        <FAQSection />
       </main>
       <Footer />
     </div>

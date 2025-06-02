@@ -1,24 +1,25 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import onaksLogo from '../assets/onaks-logo.svg'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navItems = [
-    { name: 'Home', href: '#' },
-    { name: 'About', href: '#' },
-    { name: 'Programs', href: '#' },
-    { name: 'Contact', href: '#' }
+    // { name: 'Home', href: '#' },
+    // { name: 'About', href: '#' },
+    // { name: 'Programs', href: '#' },
+    // { name: 'Contact', href: '#' }
   ]
 
   return (
-    <header className="bg-[#1c2b3a] sticky top-0 z-50 shadow-md">
+    <header className="bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo/Site Name */}
+          {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#" className="text-white text-2xl font-bold tracking-tight">
-              ONAKS FITNESS
+            <a href="#" className="block">
+              <img src={onaksLogo} alt="Onaks Fitness" className="h-10 w-auto" />
             </a>
           </div>
 

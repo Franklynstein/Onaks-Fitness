@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -20,4 +20,9 @@
   .btn-secondary {
     @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
   }
+}
+
+@font-face {
+  font-family: 'Certia';
+  src: url('./assets/fonts/Certia.ttf') format('truetype');
 } 
