@@ -37,7 +37,10 @@ export default function TopSection() {
               Build <span className="text-[#00EB2B]">different</span>
             </h1>
             <p className="text-white text-lg mb-8 max-w-xl">
-              Together, We'll transform your body with custom workout plans and personalized coaching that get results
+              Together, We'll transform your body<br className="block lg:hidden" />
+              with custom workout plans<br className="block lg:hidden" />
+              and personalized coaching<br className="block lg:hidden" />
+              that get results
             </p>
             <button className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-8 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity">
               Start Your Journey
@@ -49,7 +52,7 @@ export default function TopSection() {
             <img 
               src={Ayniga} 
               alt="Fitness Trainer" 
-              className="w-full max-w-[50%] lg:max-w-[70%] h-auto object-contain ml-auto translate-x-[-50%]"
+              className="w-full max-w-[50%] lg:max-w-[70%] h-auto object-contain ml-auto lg:translate-x-[-50%]"
             />
           </div>
         </div>

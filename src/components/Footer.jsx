@@ -37,11 +37,12 @@ export default function Footer() {
 
           {/* Programs Section */}
           <div className="md:col-span-2">
-            <h4 className="text-white font-medium mb-6">Programs</h4>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Terms & Privacy</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of service</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+            <h4 className="text-white font-medium mb-4">What are we About</h4>
+            <ul className="space-y-2">
+              <li><a href="/programs" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Programs</a></li>
+              <li><a href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors">Terms of service</a></li>
+              <li><a href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
         </div>
