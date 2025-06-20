@@ -23,7 +23,7 @@ export default function Ebook() {
         className="relative bg-cover bg-[center_65%] pt-32 pb-0"
         style={{ backgroundImage: `url(${Onaksbg})` }}
       >
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-[#161F17]/70"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="text-white md:w-1/2">
@@ -33,7 +33,7 @@ export default function Ebook() {
               </h1>
               <p className="text-gray-300 text-lg mb-8 max-w-xl">
                 My complete transformation journey with all the strategies,
-                challenges, and lessons learned along the way with actionble
+                challenges, and lessons learned along the way with actionable
                 content
               </p>
               <button className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition-opacity">

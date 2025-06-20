@@ -1,19 +1,29 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Calculator from '../assets/Calculator.png'
 import Barbell from '../assets/Barbell.png'
 
 export default function ResourcesSection() {
+  const navigate = useNavigate();
+
   const resources = [
     {
       icon: Calculator,
       title: "Calorie\nCalculator",
-      alt: "Calculator Icon"
+      alt: "Calculator Icon",
+      path: "/calculator"
     },
     {
       icon: Barbell,
       title: "Free Workout\nProgram",
-      alt: "Barbell Icon"
+      alt: "Barbell Icon",
+      path: "/workout"
     }
   ]
+
+  const handleResourceClick = (path) => {
+    navigate(path);
+  };
 
   return (
     <section className="bg-[#050505] py-20">
@@ -30,6 +40,7 @@ export default function ResourcesSection() {
           {resources.map((resource, index) => (
             <div 
               key={index}
+              onClick={() => handleResourceClick(resource.path)}
               className="bg-[#151515] rounded-2xl p-8 flex flex-col items-center justify-center aspect-square cursor-pointer hover:bg-[#1a1a1a] transition-colors duration-200"
             >
               <img 

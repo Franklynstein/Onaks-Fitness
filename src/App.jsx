@@ -15,6 +15,7 @@ import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfService from './components/TermsOfService'
 import Contact from './components/Contact'
 import Ebook from './components/Ebook'
+import CalorieCalculator from './components/CalorieCalculator'
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/ebook" element={<Ebook />} />
+        <Route path="/calculator" element={<CalorieCalculator />} />
       </Routes>
     </Router>
   )

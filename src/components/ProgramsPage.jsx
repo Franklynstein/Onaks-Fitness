@@ -11,9 +11,9 @@ export default function ProgramsPage() {
       <section className="bg-[#161F17] mb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16">
           <h1 className="text-4xl font-bold text-white mb-4">My Programs</h1>
-          <p className="text-gray-300 mb-2">
+          {/* <p className="text-gray-300 mb-2">
             Every program is based on methods that helped me transform from <span className="text-[#00EB2B]">10kg</span> to <span className="text-[#00EB2B]">78kg</span>.
-          </p>
+          </p> */}
           <p className="text-[#00EB2B] italic">Real Experience. Real Results! Different</p>
         </div>
       </section>
@@ -149,7 +149,7 @@ export default function ProgramsPage() {
           <div className="bg-[#1B1B1B] rounded-xl p-4 flex flex-col h-full">
             <div>
               <div className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white text-center py-2 rounded-lg mb-4">
-                Bulking
+                Lean Bulking
               </div>
               <div className="space-y-3">
                 <label className="flex items-center cursor-pointer">
@@ -159,13 +159,13 @@ export default function ProgramsPage() {
                     <input type="radio" name="bulkingProgram" className="form-radio text-[#00EB2B] bg-[#282828] border-[#00EB2B] h-4 w-4" />
                   </div>
                 </label>
-                <label className="flex items-center cursor-pointer">
+                {/* <label className="flex items-center cursor-pointer">
                   <span className="text-white text-lg">Standard Bulk</span>
                   <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
                     <span className="text-gray-400 mr-3 text-lg">$14.99</span>
                     <input type="radio" name="bulkingProgram" className="form-radio text-[#00EB2B] bg-[#282828] border-[#00EB2B] h-4 w-4" />
                   </div>
-                </label>
+                </label> */}
               </div>
             </div>
             <div className="mt-auto pt-4">
@@ -215,7 +215,7 @@ export default function ProgramsPage() {
           <div className="bg-[#1B1B1B] rounded-xl p-4 flex flex-col h-full">
             <div>
               <div className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white text-center py-2 rounded-lg mb-4">
-                Bulking
+                Vegan Bulking
               </div>
               <div className="text-[#00EB2B] mb-4">Vegan Options</div>
               <div className="space-y-3">
@@ -226,13 +226,13 @@ export default function ProgramsPage() {
                     <input type="radio" name="veganBulking" className="form-radio text-[#00EB2B] bg-[#282828] border-[#00EB2B] h-4 w-4" />
                   </div>
                 </label>
-                <label className="flex items-center cursor-pointer">
+                {/* <label className="flex items-center cursor-pointer">
                   <span className="text-white text-lg">Vegan Standard Bulk</span>
                   <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
                     <span className="text-gray-400 mr-3 text-lg">$14.99</span>
                     <input type="radio" name="veganBulking" className="form-radio text-[#00EB2B] bg-[#282828] border-[#00EB2B] h-4 w-4" />
                   </div>
-                </label>
+                </label> */}
               </div>
             </div>
             <div className="mt-auto pt-4">
@@ -247,7 +247,7 @@ export default function ProgramsPage() {
       {/* Combination Packages Section */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <h2 className="text-4xl font-bold text-white text-center mb-4">Combination Packages</h2>
-        <p className="text-center mb-12">
+        <p className="text-sm text-white text-center mb-12">
           Save with these complete <span className="text-[#00EB2B]">nutrition</span> + <span className="text-[#00EB2B]">training</span> bundle for maximum results
         </p>
 
@@ -255,7 +255,7 @@ export default function ProgramsPage() {
           {/* Weight Loss Combo */}
           <div className="bg-[#1B1B1B] rounded-xl p-4">
             <div className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white text-center py-2 rounded-lg mb-4">
-              Weight Loss Combo
+              Lean Bulking Combo
             </div>
             <div className="space-y-3">
               <label className="flex items-center cursor-pointer">
