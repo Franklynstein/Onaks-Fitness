@@ -2,6 +2,9 @@ import onaksLogo from '../assets/onaks-logo.svg'
 import Ayniga from '../assets/Ayniga.png'
 import Background from '../assets/Background.png'
 import Frame6 from '../assets/Frame6.png'
+import Secure from '../assets/Secure.png'
+import instant from '../assets/instant.png'
+import pdf from '../assets/pdf.png'
 
 export default function TopSection() {
   return (
@@ -42,9 +45,25 @@ export default function TopSection() {
               and personalized coaching<br className="block lg:hidden" />
               that get results
             </p>
-            <button className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-8 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity">
+            <button className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-8 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity mb-6">
               Start Your Journey
             </button>
+
+            {/* Secure Payment Info - Smaller Version */}
+            <div className="flex items-center gap-4 text-[#00EB2B] text-sm">
+              <div className="flex items-center gap-1.5">
+                <img src={Secure} alt="Secure Payment" className="w-3 h-3" />
+                <span>SECURE PAYMENT</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <img src={instant} alt="Instant Download" className="w-3 h-3" />
+                <span>INSTANT DOWNLOAD</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <img src={pdf} alt="PDF Format" className="w-3 h-3" />
+                <span>PDF FORMAT</span>
+              </div>
+            </div>
           </div>
 
           {/* Image */}

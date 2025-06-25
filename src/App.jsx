@@ -16,6 +16,7 @@ import TermsOfService from './components/TermsOfService'
 import Contact from './components/Contact'
 import Ebook from './components/Ebook'
 import CalorieCalculator from './components/CalorieCalculator'
+import FreeWorkoutForm from './components/FreeWorkoutForm'
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/ebook" element={<Ebook />} />
         <Route path="/calculator" element={<CalorieCalculator />} />
+        <Route path="/workout" element={<FreeWorkoutForm />} />
       </Routes>
     </Router>
   )

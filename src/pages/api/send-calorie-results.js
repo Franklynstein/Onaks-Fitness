@@ -1,22 +1,14 @@
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 
-// Configure API to use Edge Runtime
-export const config = {
-  runtime: 'edge',
-};
-
-export default async function handler(req) {
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ message: 'Method not allowed' }), {
-      status: 405,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return res.status(405).json({ message: 'Method not allowed' });
   }
 
   try {
-    const { bmr, tdee, dailyCalories, userDetails } = await req.json();
+    const { bmr, tdee, dailyCalories, userDetails } = req.body;
 
-    // Initialize the SES client
+    // Create SES client
     const sesClient = new SESClient({
       region: process.env.AWS_REGION,
       credentials: {
@@ -112,15 +104,9 @@ export default async function handler(req) {
     // Send email
     await sesClient.send(command);
 
-    return new Response(JSON.stringify({ message: 'Email sent successfully' }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    res.status(200).json({ message: 'Email sent successfully' });
   } catch (error) {
     console.error('Error sending email:', error);
-    return new Response(JSON.stringify({ message: 'Failed to send email', error: error.message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    res.status(500).json({ message: 'Failed to send email' });
   }
 } 
