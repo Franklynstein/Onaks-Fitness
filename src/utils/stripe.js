@@ -4,7 +4,8 @@ let stripePromise;
 
 const getStripe = () => {
   if (!stripePromise) {
-    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+    const publishableKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || "pk_test_51RIdnkFffgqZQMalguClZIFLXScTr29xL0wVL9E2E658w5jJKnJeM80IVhsFuk0sSNBhGE3ws2uGhzHFoqzhTVs900TfMzbS9a";
+    stripePromise = loadStripe(publishableKey);
   }
   return stripePromise;
 };
