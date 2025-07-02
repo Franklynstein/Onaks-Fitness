@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config/api';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -12,7 +13,7 @@ export default function Success() {
 
   useEffect(() => {
     if (sessionId) {
-      fetch('/api/verify-payment', {
+              fetch(`${API_BASE_URL}/api/verify-payment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

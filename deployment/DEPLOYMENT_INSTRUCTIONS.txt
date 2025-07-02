@@ -1,0 +1,55 @@
+
+# 🚀 SEPARATE FRONTEND/BACKEND DEPLOYMENT INSTRUCTIONS
+
+## 📁 Deployment Structure
+
+### Frontend (onaksfitness.com)
+Upload all files from 'deployment/frontend/' to main domain's public_html/:
+- Upload all files and folders from frontend/ directly to public_html/
+- Rename .env.template to .env and configure
+
+### Backend API (api.onaksfitness.com)  
+Upload all files from 'deployment/backend/' to subdomain's folder:
+- Create subdomain 'api' pointing to public_html/api/
+- Upload all files and folders from backend/ to public_html/api/
+- Rename .env.template to .env and configure
+
+## 🔧 Setup Steps
+
+### 1. Create Subdomain
+- Go to cPanel → Subdomains
+- Create: api.onaksfitness.com → public_html/api/
+
+### 2. Upload Files
+- Frontend files → public_html/ (main domain)
+- Backend files → public_html/api/ (subdomain)
+
+### 3. Configure Environment Files
+- Frontend: Edit public_html/.env
+- Backend: Edit public_html/api/.env
+
+### 4. Setup Node.js (API only)
+- Go to cPanel → Node.js
+- App root: /public_html/api
+- App URL: api.onaksfitness.com
+- Startup file: api-server-db.js
+- Run: npm install
+- Run: npm run populate-db
+
+### 5. Test Deployment
+- Frontend: https://onaksfitness.com
+- API: https://api.onaksfitness.com/api/payment-plans
+
+## 🔑 Required Environment Variables
+
+Frontend (.env):
+- VITE_TINYMCE_API_KEY=your_key
+
+Backend (.env):
+- STRIPE_SECRET_KEY=sk_live_REDACTED
+- NAMECHEAP_EMAIL_PASSWORD=xxx
+- All other variables from template
+
+Your app will be live with:
+- Frontend: https://onaksfitness.com
+- API: https://api.onaksfitness.com

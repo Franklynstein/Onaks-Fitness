@@ -235,6 +235,177 @@ export default function Ebook() {
         </div>
       </div>
 
+      {/* Reviews Section */}
+      <div className="bg-[#050505] w-full py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-white text-center mb-4 font-['Plus_Jakarta_Sans']">
+            What Our <span className="text-[#00EB2B]">Readers</span> Say
+          </h2>
+          <p className="text-gray-300 text-center mb-12 text-lg">
+            Real transformations from real people who used this ebook
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Review 1 - David M. */}
+            <div className="bg-[#1B1B1B] rounded-xl p-6 border border-[#2E2E2E] hover:border-[#00EB2B]/30 transition-colors">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 text-[#00EB2B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <h3 className="text-white font-semibold text-lg mb-2">David M.</h3>
+              <p className="text-[#00EB2B] text-sm mb-4">London, UK</p>
+              <p className="text-gray-300 leading-relaxed">
+                "I've tried keto, intermittent fasting, and even paid for expensive meal plans nothing lasted. What stood out in this ebook is how realistic and sustainable it is. The calorie banking strategy and workout split fit perfectly into my hectic job. I've dropped 9kg in 10 weeks without feeling miserable. Highly recommend it for anyone serious about change."
+              </p>
+            </div>
+
+            {/* Review 2 - Sophie L. */}
+            <div className="bg-[#1B1B1B] rounded-xl p-6 border border-[#2E2E2E] hover:border-[#00EB2B]/30 transition-colors">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 text-[#00EB2B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <h3 className="text-white font-semibold text-lg mb-2">Sophie L.</h3>
+              <p className="text-[#00EB2B] text-sm mb-4">Birmingham, UK</p>
+              <p className="text-gray-300 leading-relaxed">
+                "I've struggled with my weight since university and tried everything from expensive personal trainers to cutting out entire food groups. This ebook taught me how to approach weight loss without stress. The meal prep guide is genius! I've lost 17kg so far, but what's more amazing is how strong and energetic I feel. For the first time, this feels sustainable."
+              </p>
+            </div>
+
+            {/* Review 3 - Jason M. */}
+            <div className="bg-[#1B1B1B] rounded-xl p-6 border border-[#2E2E2E] hover:border-[#00EB2B]/30 transition-colors">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 text-[#00EB2B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <h3 className="text-white font-semibold text-lg mb-2">Jason M.</h3>
+              <p className="text-[#00EB2B] text-sm mb-4">Los Angeles, USA</p>
+              <p className="text-gray-300 leading-relaxed">
+                "This ebook was exactly what I needed. I travel a lot for work and always found it hard to stay consistent. The calorie banking strategy and the simple workout plan fit perfectly into my lifestyle. I'm down 20 pounds (9kg) and still going. More importantly, I feel fitter, sleep better, and have energy all day. I can't thank Onaks enough."
+              </p>
+            </div>
+
+            {/* Review 4 - Daniel K. */}
+            <div className="bg-[#1B1B1B] rounded-xl p-6 border border-[#2E2E2E] hover:border-[#00EB2B]/30 transition-colors">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 text-[#00EB2B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <h3 className="text-white font-semibold text-lg mb-2">Daniel K.</h3>
+              <p className="text-[#00EB2B] text-sm mb-4">Wolverhampton, UK</p>
+              <p className="text-gray-300 leading-relaxed">
+                "What I loved most was how adaptable it is. I still enjoy my weekend pub visits, but I now understand portion sizes and calorie banking. I've lost 8kg in 2.5 months, and my clothes fit better than ever. Plus, the workout plan is beginner friendly but still challenging. This is the first time weight loss hasn't felt like torture."
+              </p>
+            </div>
+
+            {/* Review 5 - Michael O. */}
+            <div className="bg-[#1B1B1B] rounded-xl p-6 border border-[#2E2E2E] hover:border-[#00EB2B]/30 transition-colors">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 text-[#00EB2B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <h3 className="text-white font-semibold text-lg mb-2">Michael O.</h3>
+              <p className="text-[#00EB2B] text-sm mb-4">Manchester, UK</p>
+              <p className="text-gray-300 leading-relaxed">
+                "I was skeptical at first, but this book delivers. The focus on systems over motivation is exactly what I needed. I adapted the meal plan to fit my lifestyle and dropped weight without feeling deprived. Best fitness investment I've ever made."
+              </p>
+            </div>
+
+            {/* Review 6 - Grace A. */}
+            <div className="bg-[#1B1B1B] rounded-xl p-6 border border-[#2E2E2E] hover:border-[#00EB2B]/30 transition-colors">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 text-[#00EB2B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <h3 className="text-white font-semibold text-lg mb-2">Grace A.</h3>
+              <p className="text-[#00EB2B] text-sm mb-4">Lagos, Nigeria</p>
+              <p className="text-gray-300 leading-relaxed">
+                "This ebook was the game changer I needed. As a busy mom, I always thought weight loss meant starving or doing extreme workouts. Onaks step-by-step approach made it simple. I lost 11kg in 3 months by following the meal prep strategy and daily step goals. I finally feel like myself again confident, strong, and proud."
+              </p>
+            </div>
+          </div>
+
+          {/* Additional Reviews for Mobile View */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Review 7 - Ethan R. */}
+            <div className="bg-[#1B1B1B] rounded-xl p-6 border border-[#2E2E2E] hover:border-[#00EB2B]/30 transition-colors">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 text-[#00EB2B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <h3 className="text-white font-semibold text-lg mb-2">Ethan R.</h3>
+              <p className="text-[#00EB2B] text-sm mb-4">New York, USA</p>
+              <p className="text-gray-300 leading-relaxed">
+                "The most sustainable fitness guide I've ever used. The progressive workouts, calorie tracking tips, and mindset shifts work perfectly together."
+              </p>
+            </div>
+
+            {/* Review 8 - Tolu A. */}
+            <div className="bg-[#1B1B1B] rounded-xl p-6 border border-[#2E2E2E] hover:border-[#00EB2B]/30 transition-colors">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 text-[#00EB2B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <h3 className="text-white font-semibold text-lg mb-2">Tolu A.</h3>
+              <p className="text-[#00EB2B] text-sm mb-4">London, UK</p>
+              <p className="text-gray-300 leading-relaxed">
+                "I've lived in the UK most of my life and always struggled balancing my cultural foods with healthy eating. This ebook completely changed my mindset. I've learned how to enjoy the foods I love in the right portions while staying on track. I've already lost 6kg and I'm still on my weight loss journey. I feel stronger, more energetic, and for the first time, this actually feels sustainable."
+              </p>
+            </div>
+
+            {/* Review 9 - Emeka O. */}
+            <div className="bg-[#1B1B1B] rounded-xl p-6 border border-[#2E2E2E] hover:border-[#00EB2B]/30 transition-colors">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 text-[#00EB2B]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <h3 className="text-white font-semibold text-lg mb-2">Emeka O.</h3>
+              <p className="text-[#00EB2B] text-sm mb-4">Birmingham, UK</p>
+              <p className="text-gray-300 leading-relaxed">
+                "I used to think weight loss meant giving up everything I enjoyed, but this ebook showed me it's about balance, not restriction. I've already lost 8kg and I'm still on my journey. My energy levels are better, my clothes fit differently, and I feel like a different person mentally. This is hands down the most realistic and sustainable approach I've ever tried."
+              </p>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="mt-12 text-center">
+            <p className="text-gray-300 mb-6 text-lg">
+              Join thousands who have transformed their lives
+            </p>
+            <button className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition-opacity">
+              GET YOUR COPY NOW - $9.99
+            </button>
+          </div>
+        </div>
+      </div>
+
       {/* FAQ Section */}
       <div className="bg-[#050505] w-full py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

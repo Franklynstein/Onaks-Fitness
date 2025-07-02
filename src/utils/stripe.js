@@ -1,4 +1,5 @@
 import { loadStripe } from '@stripe/stripe-js';
+import { API_BASE_URL } from '../config/api';
 
 let stripePromise;
 
@@ -15,7 +16,7 @@ export const createCheckoutSession = async (productId) => {
     const stripe = await getStripe();
     
     // Create checkout session on the server
-    const response = await fetch('/api/create-checkout-session', {
+    const response = await fetch(`${API_BASE_URL}/api/create-checkout-session`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
