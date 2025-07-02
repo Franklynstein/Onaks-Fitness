@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import { API_BASE_URL } from '../config/api'
 
 export default function CalorieCalculator() {
   const [formData, setFormData] = useState({
@@ -66,7 +67,7 @@ export default function CalorieCalculator() {
     };
 
     try {
-      const response = await fetch('/api/send-calorie-results', {
+      const response = await fetch(`${API_BASE_URL}/api/send-calorie-results`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
