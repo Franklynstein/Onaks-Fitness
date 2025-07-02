@@ -3,3 +3,7 @@
 # Local Netlify folder
 .netlify
 node_modules/
+dist/
+dist.zip
+upload_zip.zip
+
