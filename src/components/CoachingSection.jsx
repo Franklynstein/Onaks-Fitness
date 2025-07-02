@@ -9,6 +9,13 @@ export default function CoachingSection() {
           Premium personalized coaching to help you achieve your fitness goals. <br />
           Get a custom plan designed specifically for your body and lifestyle.
         </p>
+
+                <button 
+          className="bg-[#00EB2B] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#00EB2B]/90 transition-colors"
+          onClick={() => window.open('https://calendly.com/onaksfitness', '_blank')}
+        >
+          Book a Call
+        </button>
       </div>
     </section>
   )

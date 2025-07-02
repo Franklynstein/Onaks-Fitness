@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import ebookImg from '../assets/ebookimg.png'
 import { createCheckoutSession } from '../utils/stripe'
+import { API_BASE_URL } from '../config/api'
 
 export default function ProgramsPage() {
   const [selectedPrograms, setSelectedPrograms] = useState({
@@ -15,6 +16,47 @@ export default function ProgramsPage() {
     weightLossCombo: '',
     muscleBuildingCombo: '',
   })
+  
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  // Fetch products from API
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/payment-plans`)
+        if (!response.ok) {
+          throw new Error('Failed to fetch products')
+        }
+        const data = await response.json()
+        setProducts(data)
+      } catch (err) {
+        setError(err.message)
+        console.error('Error fetching products:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchProducts()
+  }, [])
+
+  // Helper function to get product by ID
+  const getProduct = (productId) => {
+    return products.find(product => product.id === productId)
+  }
+
+  // Helper function to format price
+  const formatPrice = (priceInCents) => {
+    return `$${(priceInCents / 100).toFixed(2)}`
+  }
+
+  // Helper function to get product price or default
+  const getProductPrice = (productId, defaultPrice = '$14.99') => {
+    const product = getProduct(productId)
+    return product ? formatPrice(product.price) : defaultPrice
+  }
 
   const handleProgramSelect = (category, value) => {
     setSelectedPrograms(prev => ({
@@ -74,6 +116,24 @@ export default function ProgramsPage() {
     }
   }
 
+  // Show loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#050505] flex items-center justify-center">
+        <div className="text-white text-xl">Loading programs...</div>
+      </div>
+    )
+  }
+
+  // Show error state
+  if (error) {
+    return (
+      <div className="min-h-screen bg-[#050505] flex items-center justify-center">
+        <div className="text-red-500 text-xl">Error: {error}</div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-[#050505]">
       <Header />
@@ -103,7 +163,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Fat Loss Program</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('male-fat-loss')}</span>
                   <input
                     type="radio"
                     name="maleProgram"
@@ -117,7 +177,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Muscle Building</span>
                 <div className="flex items-center border  bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('male-muscle-building')}</span>
                   <input
                     type="radio"
                     name="maleProgram"
@@ -131,7 +191,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Body Recomposition</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('male-body-recomposition')}</span>
                   <input
                     type="radio"
                     name="maleProgram"
@@ -160,7 +220,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Fat Loss Program</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('female-fat-loss')}</span>
                   <input
                     type="radio"
                     name="femaleProgram"
@@ -174,7 +234,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Muscle Building</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('female-muscle-building')}</span>
                   <input
                     type="radio"
                     name="femaleProgram"
@@ -188,7 +248,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Body Composition</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('female-body-composition')}</span>
                   <input
                     type="radio"
                     name="femaleProgram"
@@ -216,8 +276,11 @@ export default function ProgramsPage() {
             <p className="text-gray-300 text-md mb-6">
               Specializes Training to glute development and lower body toning
             </p>
-            <button className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-8 py-3 rounded-lg text-sm">
-              $29.99 - LEARN MORE
+            <button 
+              onClick={() => handleBuyNow('glute')}
+              className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-8 py-3 rounded-lg text-sm"
+            >
+              {getProductPrice('glute-max', '$29.99')} - BUY NOW
             </button>
           </div>
           <div className="absolute inset-0 bg-black/50"></div>
@@ -239,7 +302,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Mid Weight Loss</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('weight-loss-mid')}</span>
                   <input
                     type="radio"
                     name="weightLossProgram"
@@ -253,7 +316,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Standard Weight Loss</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('weight-loss-standard')}</span>
                   <input
                     type="radio"
                     name="weightLossProgram"
@@ -267,7 +330,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Accelerated Weight Loss</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('weight-loss-accelerated')}</span>
                   <input
                     type="radio"
                     name="weightLossProgram"
@@ -297,7 +360,7 @@ export default function ProgramsPage() {
                 <label className="flex items-center cursor-pointer">
                   <span className="text-white text-lg">Lean Bulk</span>
                   <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                    <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                    <span className="text-gray-400 mr-3 text-lg">{getProductPrice('lean-bulk')}</span>
                     <input
                       type="radio"
                       name="bulkingProgram"
@@ -311,7 +374,7 @@ export default function ProgramsPage() {
                 <label className="flex items-center cursor-pointer">
                   <span className="text-white text-lg">Standard Bulk</span>
                   <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                    <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                    <span className="text-gray-400 mr-3 text-lg">{getProductPrice('standard-bulk')}</span>
                     <input
                       type="radio"
                       name="bulkingProgram"
@@ -346,7 +409,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Vegan Mid</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('vegan-mid')}</span>
                   <input
                     type="radio"
                     name="veganWeightLoss"
@@ -360,7 +423,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Vegan Standard</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('vegan-standard')}</span>
                   <input
                     type="radio"
                     name="veganWeightLoss"
@@ -374,7 +437,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Vegan Accelerated</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('vegan-accelerated')}</span>
                   <input
                     type="radio"
                     name="veganWeightLoss"
@@ -405,7 +468,7 @@ export default function ProgramsPage() {
                 <label className="flex items-center cursor-pointer">
                   <span className="text-white text-lg">Vegan Lean Bulk</span>
                   <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                    <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                    <span className="text-gray-400 mr-3 text-lg">{getProductPrice('vegan-lean-bulk')}</span>
                     <input
                       type="radio"
                       name="veganBulking"
@@ -419,7 +482,7 @@ export default function ProgramsPage() {
                 <label className="flex items-center cursor-pointer">
                   <span className="text-white text-lg">Vegan Standard Bulk</span>
                   <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                    <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                    <span className="text-gray-400 mr-3 text-lg">{getProductPrice('vegan-standard-bulk')}</span>
                     <input
                       type="radio"
                       name="veganBulking"
@@ -461,7 +524,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Weight Loss Grocery Lists</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('weight-loss-combo-grocery-lists')}</span>
                   <input
                     type="radio"
                     name="weightLossCombo"
@@ -475,7 +538,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Weight Loss Training Program</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('weight-loss-combo-training-program')}</span>
                   <input
                     type="radio"
                     name="weightLossCombo"
@@ -504,7 +567,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Lean Bulking Grocery Lists</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('lean-bulking-grocery-lists')}</span>
                   <input
                     type="radio"
                     name="muscleBuildingCombo"
@@ -518,7 +581,7 @@ export default function ProgramsPage() {
               <label className="flex items-center cursor-pointer">
                 <span className="text-white text-lg">Lean Bulking Training Program</span>
                 <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                  <span className="text-gray-400 mr-3 text-lg">$14.99</span>
+                  <span className="text-gray-400 mr-3 text-lg">{getProductPrice('muscle-bulking-training-program')}</span>
                   <input
                     type="radio"
                     name="muscleBuildingCombo"
@@ -563,8 +626,11 @@ export default function ProgramsPage() {
                   <li>• The Exact nutrition approach I followed</li>
                   <li>• My progressive workout strategy</li>
                 </ul>
-                <button className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-6 py-2 rounded-lg hover:opacity-90 transition-opacity">
-                  $9.99 - BUY NOW
+                <button 
+                  onClick={() => handleBuyNow('ebook')}
+                  className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-6 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                >
+                  {getProductPrice('transformation-ebook', '$9.99')} - BUY NOW
                 </button>
               </div>
             </div>
