@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply text-gray-900 font-['Inter'];
+    @apply text-gray-900 font-['Plus_Jakarta_Sans','Inter',sans-serif];
   }
 }
 
