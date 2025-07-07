@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
 import TopSection from './components/TopSection'
 import CoachingSection from './components/CoachingSection'
 import StepsSection from './components/StepsSection'
@@ -26,6 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={
           <div className="min-h-screen bg-gray-50">
+            <Header />
             <TopSection />
             <main>
               <CoachingSection />

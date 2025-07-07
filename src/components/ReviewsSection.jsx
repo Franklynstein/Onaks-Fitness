@@ -12,20 +12,20 @@ export default function ReviewsSection() {
   const reviews = [
     {
       image: client1,
-      name: "SARAH, 34",
-      text: "Testimonial ipsum dolor sit amet, consectetur adipisicing elit. Autem dolore, alias, numquam enim ab voluptate id quam harum",
+      name: "Chris, 26",
+      text: "",
       video: review1
     },
     {
       image: client2,
-      name: "SARAH, 34",
-      text: "Testimonial ipsum dolor sit amet, consectetur adipisicing elit. Autem dolore, alias, numquam enim ab voluptate id quam harum",
+      name: "Bayo, 25",
+      text: "",
       video: review2
     },
     {
       image: client2,
-      name: "SARAH, 34",
-      text: "Testimonial ipsum dolor sit amet, consectetur adipisicing elit. Autem dolore, alias, numquam enim ab voluptate id quam harum",
+      name: "Anjola, 21",
+      text: "",
       video: review3
     }
   ]
