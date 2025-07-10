@@ -45,7 +45,7 @@ export default function TopSection() {
               Together, We'll transform your body with custom workout plans and personalized coaching that get results
             </p>
             <button 
-              className="w-full sm:w-auto bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-8 py-3 rounded-xl font-medium hover:opacity-90 transition-opacity mb-6 text-left"
+              className="w-full sm:w-auto bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-center text-white px-8 py-3 rounded-xl font-medium hover:opacity-90 transition-opacity mb-6 text-left"
               onClick={() => {
                 const signupForm = document.getElementById('signup-form')
                 if (signupForm) {

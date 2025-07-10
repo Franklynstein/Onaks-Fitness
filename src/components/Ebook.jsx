@@ -14,7 +14,8 @@ import pdf from '../assets/pdf.png';
 import Vector from '../assets/Vector.png';
 import Onaksbg from '../assets/Onaksbg.png';
 import FAQSection from './FAQSection';
-import afterWorkout from '../assets/afterworkout.png';
+import afterPicture from '../assets/After-picture.jpg';
+import ebookVideo from '../assets/Ebookvid.mov';
 
 export default function Ebook() {
   return (
@@ -48,7 +49,7 @@ export default function Ebook() {
               </p>
               <div className="w-full flex justify-center md:justify-start mb-8">
                 <button className="w-full sm:w-auto bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition-opacity">
-                  $9.99 - BUY NOW
+                £19.99 - BUY NOW
                 </button>
               </div>
             </div>
@@ -67,21 +68,14 @@ export default function Ebook() {
       {/* Video Section */}
       <div className="bg-[#050505] w-full py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-2xl overflow-hidden">
-            <img 
-              src={builder} 
-              alt="Fitness Training" 
-              className="w-full h-auto"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <button className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                  </svg>
-                </div>
-              </button>
-            </div>
+          <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: '16/9' }}>
+            <video 
+              src={ebookVideo}
+              controls
+              className="w-full h-full object-cover"
+            >
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </div>
@@ -96,7 +90,7 @@ export default function Ebook() {
               <div className="flex flex-col md:grid md:grid-cols-2 gap-4 rounded-2xl overflow-hidden">
                 <div className="relative">
                   <img 
-                    src={showAfter ? afterWorkout : onaksfat} 
+                    src={showAfter ? afterPicture : onaksfat} 
                     alt={showAfter ? 'After Transformation' : 'Before Transformation'} 
                     className="w-full h-auto rounded-xl"
                   />
@@ -123,7 +117,7 @@ export default function Ebook() {
       <div className="bg-[#050505] w-full px-[7vw] py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-4xl font-bold text-white text-center mb-4">What's Inside</h2>
-          <p className="text-gray-300 text-[#A0A0A0] text-center mb-12">A complete 30-page guide divided into powerful session</p>
+          <p className="text-gray-300 text-[#A0A0A0] text-center mb-12">Your step-by-step blueprint for real, lasting transformation</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* The Breaking Point */}
@@ -185,7 +179,7 @@ export default function Ebook() {
 
           <div className="mt-12">
             <button className="w-full bg-[#00A0FB] text-white py-3 rounded-lg hover:opacity-90 transition-opacity">
-              $9.99 - BUY NOW
+              $19.99 - BUY NOW
             </button>
           </div>
         </div>
@@ -232,7 +226,7 @@ export default function Ebook() {
                 My Personal <span className="text-[#00EB2B] italic font-extrabold">Guarantee</span>
               </h2>
               <p className="text-gray-300 text-base sm:text-lg max-w-md md:max-w-none font-bold px-4">
-                Everything in this book is the exact system I used to lose 23kg in 7 months. No fluff, no theory – just real strategies that worked for me and can work for you too. I've shared all my struggles and victories to give you a complete blueprint for your own transformation journey.
+                Everything in this book is the exact system I used to lose 23kg in 7 months. No fluff, no theory, just real strategies that worked for me and can work for you too. I've shared all my struggles and victories to give you a complete blueprint for your own transformation journey.
               </p>
               {/* Only show this image below text on desktop */}
               <div className="mt-6 w-full hidden md:block">
