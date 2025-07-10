@@ -15,7 +15,7 @@ import Vector from '../assets/Vector.png';
 import Onaksbg from '../assets/Onaksbg.png';
 import FAQSection from './FAQSection';
 import afterPicture from '../assets/After-picture.jpg';
-import ebookVideo from '../assets/Ebookvid.mov';
+import ebookVideo from '../assets/Ebookvid1.mov';
 
 export default function Ebook() {
   return (
