@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import onaksFat from '../assets/Onaksfat.png'
-import afterWorkout from '../assets/afterworkout.png'
+import afterPicture from '../assets/After-picture.jpg'
 
 export default function TransformationSection() {
   const [showAfter, setShowAfter] = useState(false);
@@ -15,7 +15,7 @@ export default function TransformationSection() {
         <div className="bg-[#151515] rounded-2xl p-8 max-w-2xl mx-auto">
           <div className="relative">
             <img 
-              src={showAfter ? afterWorkout : onaksFat} 
+              src={showAfter ? afterPicture : onaksFat} 
               alt={showAfter ? 'After Transformation' : 'Before Transformation'} 
               className="w-full rounded-lg"
             />

@@ -11,22 +11,24 @@ export default function ReviewsSection() {
   
   const reviews = [
     {
-      image: client1,
-      name: "Chris, 26",
-      text: "",
-      video: review1
-    },
-    {
       image: client2,
       name: "Bayo, 25",
       text: "",
       video: review2
+     
     },
     {
       image: client2,
       name: "Anjola, 21",
       text: "",
       video: review3
+      
+    },
+    {
+      image: client1,
+      name: "Chris, 26",
+      text: "",
+      video: review1
     }
   ]
 

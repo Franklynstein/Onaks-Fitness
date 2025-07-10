@@ -10,7 +10,18 @@ export default function Footer() {
             <img src={onaksLogo} alt="Onaks Fitness" className="h-16 w-auto mb-8 mx-auto" />
             <h3 className="text-[#AAAAAA] text-md text-white mb-4">Begin your journey now</h3>
             <h2 className="text-3xl font-bold text-white mb-8">Unlock the new you</h2>
-            <button className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-8 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity">
+            <button 
+              className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-8 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity"
+              onClick={() => {
+                const signupForm = document.getElementById('signup-form')
+                if (signupForm) {
+                  signupForm.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  })
+                }
+              }}
+            >
               Start Your Journey
             </button>
           </div>

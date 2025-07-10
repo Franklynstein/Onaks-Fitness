@@ -30,12 +30,12 @@ export default function ResourcesSection() {
     <section className="bg-[#050505] py-20">
       <div className="max-w-4xl mx-auto px-[7vw] sm:px-6 lg:px-8 text-center">
         <h2 className="text-2xl sm:text-4xl font-bold mb-2 sm:mb-4">
-          <span className="text-white">Explore Some of Our</span>
+          <span className="text-white">Explore Some of Our </span>
           <br className="block sm:hidden" />
           <span className="text-[#00EB2B]">Free Resources</span>
         </h2>
         <p className="text-xs text-[#AFAFAF] sm:text-gray-300 sm:text-base mb-8 sm:mb-12">
-        No membership, no pressure — just high-quality fitness resources to get you started.
+        No membership, no pressure, just high-quality fitness resources to get you started.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">

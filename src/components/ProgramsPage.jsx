@@ -9,24 +9,27 @@ import { API_BASE_URL } from '../config/api'
 
 // Fallback product data when API is not available
 const fallbackProducts = [
-  { id: 'male-fat-loss', price: 1499, name: 'Male Fat Loss Program' },
-  { id: 'male-muscle-building', price: 1499, name: 'Male Muscle Building Program' },
-  { id: 'male-body-recomposition', price: 1499, name: 'Male Body Recomposition Program' },
-  { id: 'female-fat-loss', price: 1499, name: 'Female Fat Loss Program' },
-  { id: 'female-muscle-building', price: 1499, name: 'Female Muscle Building Program' },
-  { id: 'female-body-recomposition', price: 1499, name: 'Female Body Recomposition Program' },
-  { id: 'weight-loss-mid', price: 999, name: 'Mid Weight Loss Grocery List' },
-  { id: 'weight-loss-extreme', price: 999, name: 'Extreme Weight Loss Grocery List' },
-  { id: 'bulking-mid', price: 999, name: 'Mid Bulking Grocery List' },
-  { id: 'bulking-extreme', price: 999, name: 'Extreme Bulking Grocery List' },
-  { id: 'vegan-weight-loss', price: 999, name: 'Vegan Weight Loss Grocery List' },
-  { id: 'vegan-bulking', price: 999, name: 'Vegan Bulking Grocery List' },
+  { id: 'male-fat-loss', price: 1399, name: 'Male Fat Loss Program' },
+  { id: 'male-muscle-building', price: 1399, name: 'Male Muscle Building Program' },
+  { id: 'male-body-recomposition', price: 1399, name: 'Male Body Recomposition Program' },
+  { id: 'female-fat-loss', price: 1399, name: 'Female Fat Loss Program' },
+  { id: 'female-muscle-building', price: 1399, name: 'Female Muscle Building Program' },
+  { id: 'female-body-recomposition', price: 1399, name: 'Female Body Recomposition Program' },
+  { id: 'weight-loss-mid', price: 1399, name: 'Mid Weight Loss Grocery List' },
+  { id: 'weight-loss-standard', price: 1399, name: 'Standard Weight Loss Grocery List' },
+  { id: 'weight-loss-accelerated', price: 1399, name: 'Accelerated Weight Loss Grocery List' },
+  { id: 'lean-bulk', price: 1399, name: 'Lean Bulk Grocery List' },
+  // { id: 'bulking-extreme', price: 1399, name: 'Extreme Bulking Grocery List' },
+  { id: 'vegan-mid', price: 1399, name: 'Vegan Mid Weight Loss Grocery List' },
+  { id: 'vegan-standard', price: 1399, name: 'Vegan Standard Weight Loss Grocery List' },
+  { id: 'vegan-accelerated', price: 1399, name: 'Vegan Accelerated Weight Loss Grocery List' },
+  { id: 'vegan-lean-bulk', price: 1399, name: 'Vegan lean Bulking Grocery List' },
   { id: 'weight-loss-combo-grocery-lists', price: 1999, name: 'Weight Loss Combo - Grocery Lists' },
-  { id: 'weight-loss-combo-training', price: 1999, name: 'Weight Loss Combo - Training' },
-  { id: 'muscle-building-combo-grocery-lists', price: 1999, name: 'Muscle Building Combo - Grocery Lists' },
-  { id: 'muscle-building-combo-training', price: 1999, name: 'Muscle Building Combo - Training' },
-  { id: 'glute-max', price: 2999, name: 'Glute Max Program' },
-  { id: 'transformation-ebook', price: 999, name: 'Transformation Ebook' }
+  // { id: 'weight-loss-combo-training', price: 1999, name: 'Weight Loss Combo - Training' },
+  { id: 'lean-bulking-grocery-lists', price: 1999, name: 'Lean Bulking Combo - Grocery Lists' },
+  // { id: 'muscle-building-combo-training', price: 1999, name: 'Muscle Building Combo - Training' },
+  { id: 'glute-max', price: 1799, name: 'Glute Max Program' },
+  { id: 'transformation-ebook', price: 1999, name: 'Transformation Ebook' }
 ]
 
 export default function ProgramsPage() {
@@ -194,7 +197,7 @@ export default function ProgramsPage() {
               </div>
               <div className="space-y-3">
                 <label className="flex items-center cursor-pointer">
-                  <span className="text-[#AAAAAA] text-white text-lg">Fat Loss Program</span>
+                  <span className="text-[#AAAAAA] text-lg">Fat Loss Program</span>
                   <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
                     <span className="text-gray-400 mr-3 text-lg">{getProductPrice('male-fat-loss')}</span>
                     <input
@@ -208,7 +211,7 @@ export default function ProgramsPage() {
                   </div>
                 </label>
                 <label className="flex items-center cursor-pointer">
-                  <span className="text-[#AAAAAA] text-white text-lg">Muscle Building</span>
+                  <span className="text-[#AAAAAA] text-lg">Muscle Building</span>
                   <div className="flex items-center border  bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
                     <span className="text-gray-400 mr-3 text-lg">{getProductPrice('male-muscle-building')}</span>
                     <input
@@ -222,7 +225,7 @@ export default function ProgramsPage() {
                   </div>
                 </label>
                 <label className="flex items-center cursor-pointer">
-                  <span className="text-[#AAAAAA] text-white text-lg">Body Recomposition</span>
+                  <span className="text-[#AAAAAA] text-lg">Body Recomposition</span>
                   <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
                     <span className="text-gray-400 mr-3 text-lg">{getProductPrice('male-body-recomposition')}</span>
                     <input
@@ -279,9 +282,9 @@ export default function ProgramsPage() {
                   </div>
                 </label>
                 <label className="flex items-center cursor-pointer">
-                  <span className="text-[#AAAAAA] text-lg">Body Composition</span>
+                  <span className="text-[#AAAAAA] text-lg">Body Recomposition</span>
                   <div className="flex items-center border bg-[#2E2E2E] border-[#2E2E2E] rounded-lg px-3 py-1.5 ml-auto">
-                    <span className="text-gray-400 mr-3 text-lg">{getProductPrice('female-body-composition')}</span>
+                    <span className="text-gray-400 mr-3 text-lg">{getProductPrice('female-body-recomposition')}</span>
                     <input
                       type="radio"
                       name="femaleProgram"
@@ -321,7 +324,7 @@ export default function ProgramsPage() {
                 onClick={() => handleBuyNow('glute')}
                 className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-8 py-3 rounded-lg text-sm"
               >
-                {getProductPrice('glute-max', '$29.99')} - BUY NOW
+                {getProductPrice('glute-max', '$17.99')} - BUY NOW
               </button>
             </div>
             <div className="absolute inset-0 bg-black/5"></div>
