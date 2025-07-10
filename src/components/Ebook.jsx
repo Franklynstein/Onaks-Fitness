@@ -21,7 +21,7 @@ export default function Ebook() {
   return (
     <div className="min-h-screen bg-[#050505] font-['Plus_Jakarta_Sans']">
       <Header />
-      {/* Hero Section */}
+      {/* Hero Section 1 */}
       <div 
         className="relative bg-cover bg-[center_65%] pt-32 pb-0"
         style={{ backgroundImage: `url(${Onaksbg})` }}
