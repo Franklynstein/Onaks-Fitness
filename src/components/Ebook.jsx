@@ -4,7 +4,7 @@ import Footer from './Footer';
 import onaksbehind from '../assets/onaksbehind.png';
 import book2 from '../assets/book2.png';
 import builder from '../assets/builder.png';
-import onaksfat from '../assets/onaksfat.png';
+import onaksfat from '../assets/Onaksfat.png';
 import back from '../assets/back.png';
 import bicep from '../assets/bicep.png';
 import pdfback from '../assets/pdfback.jpg';
