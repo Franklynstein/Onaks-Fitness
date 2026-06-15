@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import TopSection from './components/TopSection'
 import CoachingSection from './components/CoachingSection'
-import StepsSection from './components/StepsSection'
-import SignupFormSection from './components/SignupFormSection'
+import VideoSection from './components/VideoSection'
+import ConsultationCTA from './components/ConsultationCTA'
 import BenefitsSection from './components/BenefitsSection'
 import ResourcesSection from './components/ResourcesSection'
 import TransformationSection from './components/TransformationSection'
@@ -31,13 +31,15 @@ function App() {
             <TopSection />
             <main>
               <CoachingSection />
-              <StepsSection />
-              <SignupFormSection />
+              <VideoSection />
+              <ConsultationCTA />
               <BenefitsSection />
               <ResourcesSection />
               <TransformationSection />
+              <ConsultationCTA bgClass="bg-[#151C16]" />
               <JourneySection />
               <ReviewsSection />
+              <ConsultationCTA />
               <FAQSection />
             </main>
             <Footer />
@@ -57,4 +59,4 @@ function App() {
   )
 }
 
-export default App 
+export default App
