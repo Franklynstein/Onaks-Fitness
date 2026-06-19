@@ -1,9 +1,17 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import onaksLogo from '../assets/onaks-logo.svg'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navItems = [
     { name: 'Programs', href: '/programs' },
@@ -11,7 +19,13 @@ export default function Header() {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled || isMenuOpen
+          ? 'bg-[#0A0A0A]/95 backdrop-blur-md shadow-lg shadow-black/30'
+          : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           {/* Logo */}
@@ -47,7 +61,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         <div 
-          className={`md:hidden absolute left-0 right-0 px-4 py-2 mt-2 bg-black/90 transition-all duration-200 ${
+          className={`md:hidden absolute left-0 right-0 px-4 py-2 mt-2 bg-[#0A0A0A]/95 backdrop-blur-md transition-all duration-200 ${
             isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
           }`}
         >
@@ -66,4 +80,4 @@ export default function Header() {
       </div>
     </header>
   )
-} 
+}
