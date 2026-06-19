@@ -13,9 +13,9 @@ export default function Footer() {
             <button 
               className="bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-white px-8 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity"
               onClick={() => {
-                const signupForm = document.getElementById('signup-form')
-                if (signupForm) {
-                  signupForm.scrollIntoView({ 
+                const cta = document.getElementById('book-consultation-bottom')
+                if (cta) {
+                  cta.scrollIntoView({ 
                     behavior: 'smooth',
                     block: 'start'
                   })
@@ -65,4 +65,4 @@ export default function Footer() {
       </div>
     </footer>
   )
-} 
+}
