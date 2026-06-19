@@ -5,60 +5,44 @@ export default function FAQSection() {
 
   const faqs = [
     {
+      question: "Who is my coaching for?",
+      answer: "My coaching is for anyone who’s serious about losing fat and actually keeping it off. Whether you’re just starting out, been going to the gym for years but not seeing results, or you’ve lost weight before and want to do it properly this time, I tailor everything to where you’re at right now and where you want to get to."
+    },
+    {
+      question: "What makes my coaching different from others?",
+      answer: "I lost 23kg entirely on my own, no coach, just figuring out what actually works. Everything I teach comes from real experience, not a textbook. You’re not getting a generic plan, you’re getting what genuinely moves the needle for fat loss."
+    },
+    {
       question: "What is online coaching, and how does it work?",
       answer: "Online coaching is a personalized fitness and nutrition program delivered through digital platforms. Once you sign up, you’ll receive custom plans based on your goals, lifestyle, and fitness level. You’ll have ongoing support, progress tracking, and regular check-ins all done virtually, so you can follow the plan from anywhere in the world."
     },
     {
-      question: "Who is this coaching for?",
-      answer: "My coaching is for anyone ready to commit to improving their health, fitness, or body composition regardless of experience level. Whether you’re a beginner, an intermediate gym-goer, or someone returning to fitness after a break, I tailor each plan to your specific needs and goals."
+      question: "Are the workout and nutrition plans customised?",
+      answer: "100%. Every plan is built specifically for you, your schedule, your food preferences, your starting point."
     },
     {
-      question: "What makes your coaching different from others?",
-      answer: "I offer truly personalized support—not one-size-fits-all templates. You’ll get custom workout and nutrition plans based on your unique lifestyle, regular feedback, and real accountability. I also focus on educating you so you build long-term habits, not just short-term results."
+      question: "Do you guarantee results?",
+      answer: "I guarantee that I'll give you everything you need to succeed. The results depend on you showing up and doing the work. If you're consistent, the results will come."
     },
     {
-      question: "Do I Need A Gym Membership To Follow Your Plans?",
-      answer: "No, you don’t! Plans can be created for home workouts, gym sessions, or a mix of both depending on your preferences and access to equipment."
+      question: "Do I get check-ins or feedback?",
+      answer: "Yes, regular check-ins are built into the programme. We track your weight, measurements, and how you're feeling so we can keep adjusting and keep you moving forward."
     },
     {
-      question: "Are The Workout & Nutrition Plans Customised?",
-      answer: "Yes, 100%. Every workout and nutrition plan is tailored to your goals, experience level, body type, lifestyle, and dietary needs. Nothing is generic."
-    },
-    {
-      question: "How Often Do You Update My Plan?",
-      answer: "Plans are reviewed and adjusted regularly based on your progress, feedback, and check-ins usually every 2 to 4 weeks. If something isn’t working, we pivot quickly to keep you on track."
-    },
-    {
-      question: "How Much Does Coaching Cost?",
-      answer: "Pricing varies based on the coaching package you select, as each offers different levels of support and customization to match your goals. We’ll go over all costs during your initial consultation."
-    },
-    {
-      question: "Do You Offer Payment Plans?",
-      answer: "Yes, flexible payment plans are available. I believe coaching should be accessible, so I offer options to fit different budgets."
-    },
-    {
-      question: "Can I Cancel Anytime?",
-      answer: "Yes, you’re free to cancel at any time, though I encourage you to stay committed to achieve meaningful results. Fitness progress takes time, and consistency is what truly drives success in your fitness journey."
-    },  
-    {
-      question: "How Fast Will I See Results?",
+      question: "How fast will I see results?",
       answer: "Results vary depending on your starting point, consistency, and goals. Many clients start seeing noticeable changes in 4–6 weeks, but sustainable transformation takes time and commitment."
     },
     {
-      question: "Do You Guarantee Results?",
-      answer: "No one can guarantee results 100%—your success depends on your effort. However I do guarantee full support, expert guidance, and a proven system designed to help you succeed."
+      question: "Can I cancel anytime?",
+      answer: "Yes, you’re free to cancel at any time, though I encourage you to stay committed to achieve meaningful results. Fitness progress takes time, and consistency is what truly drives success in your fitness journey."
     },
     {
-      question: "What If I'm Not Seeing Progress?",
-      answer: "If you’re not seeing progress, we’ll troubleshoot together. I’ll assess your feedback, tweak your plan, and provide the coaching you need to move forward. Plateaus are part of the journey and we’ll break through them."
+      question: "How do I communicate with you during the program?",
+      answer: "You’ll have direct access to me through email, whatsapp or a coaching app depending on your plan. I encourage open communication so you’re never stuck or unsure of your next step."
     },
     {
-      question: "How Do I Communicate With You During The Program?",
-      answer: "You’ll have direct access to me through email, whatsapp or a coaching app or depending on your plan. I encourage open communication so you’re never stuck or unsure of your next step."
-    },
-    {
-      question: "Do I Get Check-Ins or Feedback?",
-      answer: "Absolutely! You’ll receive weekly or monthly check-ins where we review your progress, make any necessary adjustments, and keep you accountable.I’ll also give you personalized feedback to make sure you’re consistently moving toward your goals."
+      question: "How much does coaching cost?",
+      answer: "Pricing is based on the level of support you need. The best way to find out what’s right for you is to apply and we’ll go from there."
     }
   ]
 
@@ -85,7 +69,7 @@ export default function FAQSection() {
               >
                 <span className="text-white font-medium">{faq.question}</span>
                 <svg
-                  className={`w-6 h-6 text-white transform transition-transform duration-200 ${
+                  className={`w-6 h-6 text-white flex-shrink-0 ml-4 transform transition-transform duration-200 ${
                     openQuestion === index ? 'rotate-180' : ''
                   }`}
                   fill="none"
@@ -111,4 +95,4 @@ export default function FAQSection() {
       </div>
     </section>
   )
-} 
+}
