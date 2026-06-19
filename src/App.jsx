@@ -32,14 +32,14 @@ function App() {
             <main>
               <CoachingSection />
               <VideoSection />
-              <ConsultationCTA />
+              <ConsultationCTA variant="A" id="book-consultation" />
               <BenefitsSection />
               <ResourcesSection />
               <TransformationSection />
-              <ConsultationCTA bgClass="bg-[#151C16]" />
+              <ConsultationCTA variant="A" />
               <JourneySection />
               <ReviewsSection />
-              <ConsultationCTA />
+              <ConsultationCTA variant="B" id="book-consultation-bottom" />
               <FAQSection />
             </main>
             <Footer />
