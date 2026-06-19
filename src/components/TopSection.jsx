@@ -47,9 +47,9 @@ export default function TopSection() {
             <button 
               className="w-full sm:w-auto bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-center text-white px-8 py-3 rounded-xl font-medium hover:opacity-90 transition-opacity mb-6 text-left"
               onClick={() => {
-                const signupForm = document.getElementById('signup-form')
-                if (signupForm) {
-                  signupForm.scrollIntoView({ 
+                const cta = document.getElementById('book-consultation')
+                if (cta) {
+                  cta.scrollIntoView({ 
                     behavior: 'smooth',
                     block: 'start'
                   })
@@ -88,4 +88,4 @@ export default function TopSection() {
       </div>
     </section>
   )
-} 
+}
