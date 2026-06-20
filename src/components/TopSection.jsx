@@ -39,10 +39,10 @@ export default function TopSection() {
           {/* Text Content */}
           <div className="w-full flex flex-col items-start text-left mt-[10vh] lg:mt-0 lg:items-start lg:text-left px-[7vw] relative z-10">
             <h1 className="text-4xl sm:text-6xl font-bold text-white mb-4">
-              Build <span className="text-[#00EB2B]">Different</span>
+              Your <span className="text-[#00EB2B]">transformation</span> starts here
             </h1>
             <p className="text-white text-base sm:text-lg mb-8 max-w-xl">
-              Together, We'll transform your body with custom workout plans and personalized coaching that get results
+              No more guessing, no more starting over. Get a fat loss plan built around your body, your schedule, and your goals, with me coaching you every step of the way.
             </p>
             <button 
               className="w-full sm:w-auto bg-gradient-to-r from-[#00A0FB] to-[#00EB2B] text-center text-white px-8 py-3 rounded-xl font-medium hover:opacity-90 transition-opacity mb-6 text-left"
