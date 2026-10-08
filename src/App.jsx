@@ -6,7 +6,7 @@ import TermsOfService from './components/TermsOfService'
 import Contact from './components/Contact'
 import Ebook from './components/Ebook'
 import CalorieCalculator from './components/CalorieCalculator'
-import FreeWorkoutForm from './components/FreeWorkoutForm'
+import FreeWorkoutPage from './redesign/free-workout/FreeWorkoutPage'
 import Success from './components/Success'
 import Admin from './components/Admin'
 
@@ -21,7 +21,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/ebook" element={<Ebook />} />
         <Route path="/calculator" element={<CalorieCalculator />} />
-        <Route path="/workout" element={<FreeWorkoutForm />} />
+        <Route path="/workout" element={<FreeWorkoutPage />} />
         <Route path="/success" element={<Success />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
