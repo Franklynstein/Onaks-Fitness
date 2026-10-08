@@ -17,3 +17,5 @@ branch_structure.json
 
 # re-extracted handoff zip (duplicate of design-reference/)
 design-reference/onaks-design-handoff/
+
+node_modules
