@@ -4,7 +4,7 @@ import ProgramsPage from './components/ProgramsPage'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfService from './components/TermsOfService'
 import Contact from './components/Contact'
-import Ebook from './components/Ebook'
+import EbookPage from './redesign/ebook/EbookPage'
 import CalorieCalculator from './components/CalorieCalculator'
 import FreeWorkoutForm from './components/FreeWorkoutForm'
 import Success from './components/Success'
@@ -19,7 +19,7 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/ebook" element={<Ebook />} />
+        <Route path="/ebook" element={<EbookPage />} />
         <Route path="/calculator" element={<CalorieCalculator />} />
         <Route path="/workout" element={<FreeWorkoutForm />} />
         <Route path="/success" element={<Success />} />
