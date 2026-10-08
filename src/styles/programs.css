@@ -1,0 +1,74 @@
+/* Programs page styles, ported from design-reference/programs.html, scoped under .onaks */
+.onaks .ph{position:relative;padding:clamp(140px,18vh,200px) 0 clamp(48px,7vw,88px);overflow:hidden}
+.onaks .ph .sweep{position:absolute;inset:0;pointer-events:none}
+.onaks .ph .sweep svg{width:100%;height:100%}
+.onaks .ph .eyebrow{display:inline-block;font-weight:700;font-size:14px;color:var(--green);margin-bottom:18px}
+.onaks .ph h1{font-size:clamp(42px,6.4vw,88px);max-width:12em}
+.onaks .ph p.lead{margin-top:22px}
+.onaks .ph h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;margin-right:.22em}
+.onaks .ph h1 .w span{display:inline-block;transform:translateY(110%)}
+.onaks /* pricing */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.onaks .plan{position:relative;border-radius:30px;padding:40px 36px;background:rgba(255,255,255,.035);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .4s}
+.onaks .plan:hover{transform:translateY(-6px)}
+.onaks .plan.hot{border-color:transparent;background:linear-gradient(var(--black),var(--black)) padding-box,var(--ignite) border-box}
+.onaks .plan .flag{position:absolute;top:-14px;left:36px;padding:7px 14px;border-radius:999px;background:var(--ignite);color:#081108;font-weight:800;font-size:12.5px}
+.onaks .plan h3{font-size:24px}
+.onaks .plan .price{margin-top:18px;display:flex;align-items:baseline;gap:8px}
+.onaks .plan .price b{font-size:clamp(44px,5vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.onaks .plan .price span{color:var(--muted)}
+.onaks .plan .sub{color:var(--muted);margin-top:8px;font-size:15px}
+.onaks .plan ul{list-style:none;margin:28px 0;display:grid;gap:12px;flex:1}
+.onaks .plan li{display:flex;gap:12px;align-items:flex-start}
+.onaks .plan li svg{flex:none;width:20px;height:20px;margin-top:3px;fill:none;stroke:url(#ig);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.onaks .plan .btn,.onaks .plan .btn-ghost{justify-content:center;width:100%}
+.onaks .plan .note{margin-top:14px;color:var(--muted);font-size:13.5px;text-align:center}
+
+@media(max-width:860px){
+.onaks .plans{grid-template-columns:1fr}
+}
+.onaks /* shop */
+.shops{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.onaks .shop{position:relative;border-radius:28px;padding:32px 30px;background:rgba(255,255,255,.035);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .4s}
+.onaks .shop:hover{transform:translateY(-4px);border-color:rgba(0,235,43,.35)}
+.onaks .shop h3{font-size:22px}
+.onaks .shop .vg{display:inline-block;margin-top:8px;font-size:13px;font-weight:700;background:var(--ignite);-webkit-background-clip:text;background-clip:text;color:transparent}
+.onaks .opts{display:grid;margin:18px 0 22px;flex:1}
+.onaks .opt{display:flex;align-items:center;gap:14px;padding:16px 0;border-top:1px solid var(--line);cursor:pointer}
+.onaks .opt:last-child{border-bottom:1px solid var(--line)}
+.onaks .opt input{position:absolute;opacity:0;pointer-events:none}
+.onaks .opt .n{flex:1;font-weight:600}
+.onaks .opt .p{color:var(--muted);font-variant-numeric:tabular-nums}
+.onaks .opt i{width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.25);position:relative;transition:border-color .3s}
+.onaks .opt i::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--ignite);transform:scale(0);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.onaks .opt input:checked ~ i{border-color:var(--green)}
+.onaks .opt input:checked ~ i::after{transform:scale(1)}
+.onaks .opt input:checked ~ .n{color:var(--white)}
+.onaks .opt:hover i{border-color:rgba(0,235,43,.7)}
+.onaks .shop .btn{justify-content:center;width:100%}
+.onaks .shop.combo p{color:var(--muted);margin-top:8px}
+.onaks .shop.combo .cp{font-size:40px;font-weight:800;letter-spacing:-.03em;margin:20px 0 22px}
+.onaks .shop .flag{position:absolute;top:-14px;left:30px;padding:7px 14px;border-radius:999px;background:var(--ignite);color:#081108;font-weight:800;font-size:12.5px}
+.onaks .feature{position:relative;overflow:hidden;margin-top:24px;border-radius:28px;border:1px solid transparent;background:linear-gradient(var(--black),var(--black)) padding-box,var(--ignite) border-box;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.onaks .feature .sweep{position:absolute;inset:0;pointer-events:none}
+.onaks .feature .sweep svg{width:100%;height:100%}
+.onaks .feature .fc{position:relative;max-width:36em}
+.onaks .feature .fc p{color:var(--muted);margin-top:10px}
+.onaks .feature .flag{position:static;display:inline-block;margin-bottom:14px;padding:7px 14px;border-radius:999px;background:var(--ignite);color:#081108;font-weight:800;font-size:12.5px}
+.onaks .feature .btn{position:relative;flex:none}
+.onaks .ebb{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,64px);align-items:center;border-radius:30px;border:1px solid var(--line);background:rgba(255,255,255,.03);padding:clamp(28px,4vw,48px)}
+.onaks .ebb{position:relative;overflow:hidden}
+.onaks .ebb::before{content:"";position:absolute;left:0;top:0;width:45%;height:100%;background:radial-gradient(50% 50% at 50% 50%,rgba(0,235,43,.16),rgba(0,180,251,.08) 55%,transparent 75%);filter:blur(30px);pointer-events:none}
+.onaks .ebb img{position:relative;width:min(100%,400px);margin-inline:auto;display:block;animation:floaty 8s ease-in-out infinite;transition:transform .8s cubic-bezier(.2,.8,.2,1);}
+.onaks .ebb:hover img{transform:translateY(-8px)}
+.onaks .ebb .inc{list-style:none;margin-top:22px;display:grid;gap:12px}
+.onaks .ebb .inc li{display:flex;gap:12px;align-items:flex-start}
+.onaks .ebb .inc svg{flex:none;width:20px;height:20px;margin-top:3px;fill:none;stroke:url(#ig);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.onaks .ebb .buy{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap}
+.onaks .ebb .eyebrow{display:inline-block;font-weight:700;font-size:14px;color:var(--green);margin-bottom:14px}
+
+@media(max-width:860px){
+.onaks .shops{grid-template-columns:1fr}
+.onaks .feature{flex-direction:column;align-items:flex-start}
+.onaks .ebb{grid-template-columns:1fr}
+}
