@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import HomePage from './redesign/home/HomePage'
-import ProgramsPage from './components/ProgramsPage'
+import ProgramsRedesign from './redesign/programs/ProgramsRedesign'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfService from './components/TermsOfService'
 import Contact from './components/Contact'
@@ -15,7 +15,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/programs" element={<ProgramsPage />} />
+        <Route path="/programs" element={<ProgramsRedesign />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/contact" element={<Contact />} />
