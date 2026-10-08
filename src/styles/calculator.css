@@ -1,0 +1,55 @@
+/* Calorie calculator page styles. Ported from design-reference/calorie-calculator.html,
+   scoped under .onaks. Shared design-system rules live in onaks.css. */
+
+/* page hero (shared subpage pattern) */
+.onaks .ph{position:relative;padding:clamp(140px,18vh,200px) 0 clamp(48px,7vw,88px);overflow:hidden}
+.onaks .ph .sweep{position:absolute;inset:0;pointer-events:none}
+.onaks .ph .sweep svg{width:100%;height:100%}
+.onaks .ph .eyebrow{display:inline-block;font-weight:700;font-size:14px;color:var(--green);margin-bottom:18px}
+.onaks .ph h1{font-size:clamp(42px,6.4vw,88px);max-width:12em}
+.onaks .ph p.lead{margin-top:22px}
+.onaks .ph h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;margin-right:.22em}
+.onaks .ph h1 .w span{display:inline-block;transform:translateY(110%)}
+
+/* calculator */
+.onaks .calc{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:start}
+.onaks .form{display:grid;gap:22px}
+.onaks .form label{display:block;font-weight:600;font-size:14px;margin-bottom:8px;color:var(--muted)}
+.onaks .form input[type=number],.onaks .form select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--white);font:inherit;font-size:17px;padding:16px 18px;border-radius:16px;outline:none;transition:border-color .3s;-moz-appearance:textfield;appearance:none}
+.onaks .form input:focus,.onaks .form select:focus{border-color:var(--green)}
+.onaks .form select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F4F6F4' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:18px}
+.onaks .form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.onaks .seg{display:flex;gap:8px;background:rgba(255,255,255,.04);padding:6px;border-radius:999px;border:1px solid var(--line)}
+.onaks .seg button{flex:1;padding:12px;border-radius:999px;font-weight:700;color:var(--muted);transition:background .3s,color .3s}
+.onaks .seg button.on{background:var(--ignite);color:#081108}
+.onaks .form input[type=range]{width:100%;accent-color:var(--green);margin-top:10px}
+.onaks .form .hint{font-size:13px;color:var(--muted);margin-top:8px}
+.onaks .wunit{display:flex;gap:10px;align-items:stretch}
+.onaks .wunit input{flex:1}
+.onaks .seg.mini{padding:4px;min-width:124px}
+.onaks .seg.mini button{padding:8px 12px;font-size:14px}
+.onaks .form input[type=email]{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--white);font:inherit;font-size:17px;padding:16px 18px;border-radius:16px;outline:none;transition:border-color .3s}
+.onaks .form input::placeholder{color:rgba(155,163,157,.7)}
+
+/* result card */
+.onaks .result{position:sticky;top:120px;border-radius:30px;padding:36px;border:1px solid transparent;background:linear-gradient(var(--black),var(--black)) padding-box,var(--ignite) border-box}
+.onaks .result h3{font-size:24px}
+.onaks .result .empty h3{font-size:22px}
+.onaks .result .empty p{color:var(--muted);margin-top:8px}
+.onaks .result .tip{margin-top:22px;color:var(--muted);font-size:14.5px;line-height:1.55}
+.onaks .result .btn{margin-top:22px;width:100%;justify-content:center}
+.onaks .result .inc{list-style:none;margin-top:22px;display:grid;gap:12px}
+.onaks .result .inc li{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:15px}
+.onaks .result .inc svg{flex:none;width:20px;height:20px;margin-top:3px;fill:none;stroke:url(#ig);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.onaks .tick{width:56px;height:56px;border-radius:50%;background:var(--ignite);display:grid;place-items:center;margin-bottom:18px}
+.onaks .tick svg{width:26px;height:26px;fill:none;stroke:#081108;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+/* steps */
+.onaks .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.onaks .step{padding:30px 26px;border-radius:24px;border:1px solid var(--line);background:rgba(255,255,255,.025);position:relative}
+.onaks .step::before{counter-increment:s;content:"0" counter(s);display:block;font-size:13px;font-weight:800;background:var(--ignite);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:16px;letter-spacing:.04em}
+.onaks .step p{color:var(--muted);margin-top:8px;font-size:15.5px}
+
+@media(max-width:860px){.onaks .calc{grid-template-columns:1fr}.onaks .result{position:static}}
+@media(max-width:900px){.onaks .steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.onaks .steps{grid-template-columns:1fr!important}}
