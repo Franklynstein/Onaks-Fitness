@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/onaks-logo.svg';
+import logo from '../../assets/reference/img00.png';
 import { CALENDLY_URL } from '../../config/site';
 
 // Site navigation: three-part bar, Free-resources dropdown, mobile full-screen menu
