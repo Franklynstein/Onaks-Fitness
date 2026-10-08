@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { motion, MotionConfig } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { motion, MotionConfig, AnimatePresence } from 'framer-motion';
 
 import '../../styles/onaks.css';
 import SvgDefs from '../../components/ui/SvgDefs';
@@ -19,16 +19,16 @@ import Hero from './Hero';
 import Counter from './Counter';
 import { CALENDLY_URL } from '../../config/site';
 
-// Image mappings are best-guess from existing repo assets — confirm with the owner.
-import heroPhoto from '../../assets/onaksbehind.png';
-import beforeImg from '../../assets/Onaksfat.png';
-import afterImg from '../../assets/Onaksfit.png';
-import phoneScreen from '../../assets/afterworkout.png';
-import appShot from '../../assets/instant.png';
-import journeyPic from '../../assets/Ayniga.png';
-import review1 from '../../assets/client1.png';
-import review2 from '../../assets/client2.png';
-import review3 from '../../assets/afterworkout.png';
+// Exact approved visuals, extracted from design-reference/home.html (document order).
+import heroPhoto from '../../assets/reference/img01.png';
+import beforeImg from '../../assets/reference/img02.jpg';
+import afterImg from '../../assets/reference/img03.jpg';
+import phoneScreen from '../../assets/reference/img04.jpg';
+import appShot from '../../assets/reference/img05.png';
+import review1 from '../../assets/reference/img06.jpg';
+import review2 from '../../assets/reference/img07.jpg';
+import review3 from '../../assets/reference/img08.jpg';
+import journeyPic from '../../assets/reference/img09.jpg';
 
 const Check = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
@@ -46,10 +46,26 @@ const FAQS = [
 ];
 
 function FAQItem({ q, a }) {
+  const [open, setOpen] = useState(false);
   return (
-    <details className="faq-item">
-      <summary>{q}<i /></summary>
-      <div className="a">{a}</div>
+    <details open={open}>
+      <summary onClick={(e) => { e.preventDefault(); setOpen((o) => !o); }}>
+        {q}<i />
+      </summary>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="a" className="a"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.42, ease: [0.2, 0.8, 0.2, 1] }}
+            style={{ overflow: 'hidden' }}
+          >
+            {a}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </details>
   );
 }
