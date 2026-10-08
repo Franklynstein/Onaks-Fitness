@@ -1,15 +1,5 @@
-/* Free workout page-specific styles. Ported from design-reference/free-workout.html,
-   scoped under .onaks (shared design system lives in onaks.css). */
-
-/* page hero */
-.onaks .ph{position:relative;padding:clamp(140px,18vh,200px) 0 clamp(48px,7vw,88px);overflow:hidden}
-.onaks .ph .sweep{position:absolute;inset:0;pointer-events:none}
-.onaks .ph .sweep svg{width:100%;height:100%}
-.onaks .ph .eyebrow{display:inline-block;font-weight:700;font-size:14px;color:var(--green);margin-bottom:18px}
-.onaks .ph h1{font-size:clamp(42px,6.4vw,88px);max-width:12em}
-.onaks .ph p.lead{margin-top:22px}
-.onaks .ph h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;margin-right:.22em}
-.onaks .ph h1 .w span{display:inline-block}
+/* Free workout page-specific styles.
+   Shared hero/form/tick rules now live in ui.css. */
 
 /* steps */
 .onaks .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
@@ -36,6 +26,3 @@
 .onaks .capture .done p{color:var(--muted);margin-top:8px}
 .onaks .capture .done .inc{margin-top:18px}
 @media(max-width:860px){.onaks .capture{grid-template-columns:1fr}}
-
-.onaks .tick{width:56px;height:56px;border-radius:50%;background:var(--ignite);display:grid;place-items:center;margin-bottom:18px}
-.onaks .tick svg{width:26px;height:26px;fill:none;stroke:#081108;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}

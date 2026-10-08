@@ -1,3 +1,4 @@
+@import './ui.css';
 /* Onaks design system + homepage styles.
    Ported verbatim from design-reference/home.html, scoped under .onaks
    (body-level rules apply via body.onaks-active, toggled when the homepage mounts). */
