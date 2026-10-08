@@ -6,7 +6,7 @@ import TermsOfService from './components/TermsOfService'
 import Contact from './components/Contact'
 import EbookPage from './redesign/ebook/EbookPage'
 import CalculatorPage from './redesign/calculator/CalculatorPage'
-import FreeWorkoutForm from './components/FreeWorkoutForm'
+import FreeWorkoutPage from './redesign/free-workout/FreeWorkoutPage'
 import Success from './components/Success'
 import Admin from './components/Admin'
 
@@ -21,7 +21,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/ebook" element={<EbookPage />} />
         <Route path="/calculator" element={<CalculatorPage />} />
-        <Route path="/workout" element={<FreeWorkoutForm />} />
+        <Route path="/workout" element={<FreeWorkoutPage />} />
         <Route path="/success" element={<Success />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
