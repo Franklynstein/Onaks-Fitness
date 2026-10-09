@@ -15,6 +15,7 @@ import Select from '../../components/ui/Select';
 import FormConfirmation from '../../components/ui/FormConfirmation';
 import { left, right, blur } from '../../components/ui/motionPresets';
 import { CALENDLY_URL } from '../../config/site';
+import { supabase } from '../../lib/supabase';
 
 const EASE = [0.215, 0.61, 0.355, 1];
 const stepsContainer = {
@@ -46,6 +47,8 @@ export default function CalculatorPage() {
   const [goal, setGoal] = useState('lose');
   const [pace, setPace] = useState(18);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
   const formRef = useRef(null);
   const resultRef = useRef(null);
 
@@ -75,7 +78,7 @@ export default function CalculatorPage() {
     };
   }, []);
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (!formRef.current.reportValidity()) return;
 
@@ -93,8 +96,21 @@ export default function CalculatorPage() {
     const fat = Math.round(Math.max(w * 0.7, (kcal * 0.25) / 9));
     const carb = Math.max(0, Math.round((kcal - pro * 4 - fat * 9) / 4));
 
-    // TODO: POST { email, kcal, pro, carb, fat } to the email tool (wired later).
-    void { kcal: Math.round(kcal), pro, carb, fat };
+    const results = { bmr: Math.round(bmr), tdee: Math.round(tdee), calories: Math.round(kcal), protein: pro, carbs: carb, fat };
+    const profile = { sex, age: a, heightCm: h, weightKg: Math.round(w), unit, activity: act, goal, pace: goal === 'lose' ? pace : null };
+
+    if (!supabase) { setError('The email service is not configured yet. Please try again later.'); return; }
+
+    setError('');
+    setSending(true);
+    const { error: fnError } = await supabase.functions.invoke('send-calorie-results', {
+      body: { email, profile, results },
+    });
+    setSending(false);
+    if (fnError) {
+      setError('Something went wrong sending your results. Please try again.');
+      return;
+    }
 
     setSubmitted(true);
     if (window.innerWidth < 860 && resultRef.current) {
@@ -175,12 +191,12 @@ export default function CalculatorPage() {
                   </div>
                 )}
 
-                <button className="btn" id="go" type="submit" disabled={submitted} style={{ justifyContent: 'center' }}>
-                  {submitted ? 'Sent' : 'Calculate and send results'}
+                <button className="btn" id="go" type="submit" disabled={sending || submitted} style={{ justifyContent: 'center' }}>
+                  {submitted ? 'Sent' : sending ? 'Sending…' : 'Calculate and send results'}
                 </button>
-                <p className="hint" style={{ marginTop: -6 }}>
-                  Your results land in your inbox within a couple of minutes.
-                </p>
+                {error
+                  ? <p className="hint" style={{ marginTop: -6, color: '#ff6b6b' }}>{error}</p>
+                  : <p className="hint" style={{ marginTop: -6 }}>Your results land in your inbox within a couple of minutes.</p>}
               </motion.form>
 
               <motion.div className="result" ref={resultRef} {...right}>
@@ -200,7 +216,7 @@ export default function CalculatorPage() {
                     tips={[
                       "Can't see it? Check your spam or junk folder",
                       'On Gmail, check the Promotions tab too',
-                      'Add onaksfitness@gmail.com to your contacts so the next one lands in your inbox',
+                      'Add hello@onaksfitness.com to your contacts so the next one lands in your inbox',
                     ]}
                     ctaHref={CALENDLY_URL}
                     ctaText="Want me to do the rest? Book a free call"
