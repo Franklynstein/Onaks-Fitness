@@ -21,7 +21,7 @@ const rv = (i) => ({
   transition: { duration: 0.8, delay: 0.8 + i * 0.1, ease: EASE },
 });
 
-export default function EbookHero() {
+export default function EbookHero({ price }) {
   const words = HEADLINE.split(' ');
   return (
     <section className="ph eh" data-tone="#151515">
@@ -62,7 +62,7 @@ export default function EbookHero() {
             learned along the way, with actionable content you can use this week.
           </motion.p>
           <motion.div className="buy" {...rv(2)}>
-            <Button onClick={buy} disabled={!PRODUCTS.ebook}>Buy now for $19.99</Button>
+            <Button onClick={buy} disabled={!PRODUCTS.ebook}>Buy now{price ? ` for ${price}` : ''}</Button>
             <span className="fine">Instant download. PDF format.</span>
           </motion.div>
         </div>

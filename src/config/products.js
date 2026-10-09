@@ -1,24 +1,23 @@
-// Checkout product IDs — must match the `id` of each row in your backend
-// payment_plans (api.onaksfitness.com), which maps them to your Stripe prices.
-// Fill each value, then rebuild. An empty value leaves that Buy button disabled.
-// (Reference ids seen in your deploy-populate-products.js are shown as hints.)
+// Checkout product ids — these are the live ids from your backend payment_plans
+// (api.onaksfitness.com/api/payment-plans), confirmed against the running catalogue.
+// Prices are NOT stored here; the pages fetch live prices from /api/payment-plans.
 export const PRODUCTS = {
-  maleFatLoss: '',                 // hint: male-fat-loss
-  maleMuscle: '',                  // hint: male-muscle-building
-  maleRecomp: '',                  // hint: male-body-recomposition
-  femaleFatLoss: '',               // hint: female-fat-loss
-  femaleMuscle: '',                // hint: female-muscle-building
-  femaleRecomp: '',                // hint: female-body-composition
-  gluteMax: '',                    // hint: glute-max
-  groceryWeightLossMild: '',       // hint: weight-loss-mid
-  groceryWeightLossStandard: '',   // hint: weight-loss-standard
-  groceryWeightLossAccelerated: '',// hint: weight-loss-accelerated
-  groceryLeanBulk: '',             // hint: lean-bulk
-  veganMild: '',                   // hint: vegan-mid
-  veganStandard: '',               // hint: vegan-standard
-  veganAccelerated: '',            // hint: vegan-accelerated
-  veganLeanBulk: '',               // hint: vegan-lean-bulk
-  comboWeightLoss: '',             // hint: weight-loss-combo-grocery-lists
-  comboLeanBulk: '',               // hint: lean-bulking-grocery-lists
-  ebook: '',                       // hint: transformation-ebook
+  maleFatLoss: 'male-fat-loss',
+  maleMuscle: 'male-muscle-building',
+  maleRecomp: 'male-body-recomposition',
+  femaleFatLoss: 'female-fat-loss',
+  femaleMuscle: 'female-muscle-building',
+  femaleRecomp: 'female-body-composition',
+  gluteMax: 'glute-max',
+  groceryWeightLossMild: 'weight-loss-mid',
+  groceryWeightLossStandard: 'weight-loss-standard',
+  groceryWeightLossAccelerated: 'weight-loss-accelerated',
+  groceryLeanBulk: 'lean-bulk',
+  veganMild: 'vegan-mid',
+  veganStandard: 'vegan-standard',
+  veganAccelerated: 'vegan-accelerated',
+  veganLeanBulk: 'vegan-lean-bulk',
+  comboWeightLoss: 'weight-loss-combo-grocery-lists',
+  comboLeanBulk: 'lean-bulking-grocery-lists',
+  ebook: 'transformation-ebook',
 };

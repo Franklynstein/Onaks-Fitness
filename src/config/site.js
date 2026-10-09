@@ -1,7 +1,6 @@
 // Central site config for the redesigned pages.
-// TODO: replace these placeholders with real values (tracked in the homepage PR notes).
-export const CALENDLY_URL = '#';            // TODO: Calendly booking URL ("Book a free call")
-export const YOUTUBE_VIDEO_ID = 'VIDEO_ID'; // TODO: homepage YouTube Short video id
+export const CALENDLY_URL = 'https://calendly.com/onaksfitness/new-meeting';
+export const YOUTUBE_VIDEO_ID = 'DWv33GpFTUw'; // homepage + ebook video (youtu.be/DWv33GpFTUw)
 export const INSTAGRAM_URL = 'https://instagram.com/onaks_';
-export const TIKTOK_URL = '#';              // TODO: TikTok profile URL
+export const TIKTOK_URL = 'https://www.tiktok.com/@onaks_3';
 export const CONTACT_EMAIL = 'onaksfitness@gmail.com';

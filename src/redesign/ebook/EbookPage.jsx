@@ -13,6 +13,8 @@ import { Button } from '../../components/ui/Button';
 import { up, blur, right, clip, EASE } from '../../components/ui/motionPresets';
 import { PRODUCTS } from '../../config/products';
 import { createCheckoutSession } from '../../utils/stripe';
+import { usePrices } from '../../hooks/usePrices';
+import { YOUTUBE_VIDEO_ID } from '../../config/site';
 import EbookHero from './EbookHero';
 
 import videoPoster from '../../assets/reference-ebook/img02.jpg';
@@ -81,7 +83,10 @@ function VideoBox() {
   return (
     <motion.div className="vidbox" {...up}>
       {playing ? (
-        <video src="EBOOK_VIDEO.mp4" controls autoPlay playsInline />
+        <iframe
+          src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&playsinline=1`}
+          title="Build Different" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen
+        />
       ) : (
         <>
           <img src={videoPoster} alt="" />
@@ -115,6 +120,8 @@ function FAQItem({ q, a }) {
 }
 
 export default function EbookPage() {
+  const { priceOf } = usePrices();
+  const ebookPrice = priceOf(PRODUCTS.ebook);
   useEffect(() => {
     document.body.classList.add('onaks-active');
     let raf = null;
@@ -149,7 +156,7 @@ export default function EbookPage() {
         <Nav />
 
         <main id="top">
-          <EbookHero />
+          <EbookHero price={ebookPrice} />
 
           {/* VIDEO */}
           <section className="sec" style={{ paddingTop: 0 }} data-tone="#131a1f">
@@ -201,7 +208,7 @@ export default function EbookPage() {
                 ))}
               </motion.div>
               <motion.p {...up} style={{ textAlign: 'center', marginTop: 36 }}>
-                <Button onClick={buy} disabled={!PRODUCTS.ebook}>Buy now for $19.99</Button>
+                <Button onClick={buy} disabled={!PRODUCTS.ebook}>Buy now{ebookPrice ? ` for ${ebookPrice}` : ''}</Button>
               </motion.p>
             </div>
           </section>
@@ -273,7 +280,7 @@ export default function EbookPage() {
                 Learn the exact system I used to drop from 101kg to 78kg and discover how you can apply
                 these strategies to your own journey.
               </motion.p>
-              <motion.p {...up}><Button onClick={buy} disabled={!PRODUCTS.ebook}>Get the ebook now for $19.99</Button></motion.p>
+              <motion.p {...up}><Button onClick={buy} disabled={!PRODUCTS.ebook}>Get the ebook now{ebookPrice ? ` for ${ebookPrice}` : ''}</Button></motion.p>
               <motion.div className="trust" {...up}>
                 <span><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2" /><path d="M8 10V7a4 4 0 018 0v3" /></svg>Secure payment</span>
                 <span><svg viewBox="0 0 24 24"><path d="M12 3v12M6 11l6 6 6-6M4 21h16" /></svg>Instant download</span>
