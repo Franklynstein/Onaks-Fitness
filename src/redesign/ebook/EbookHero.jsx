@@ -1,7 +1,14 @@
 import { motion } from 'framer-motion';
 import { Button } from '../../components/ui/Button';
-import { CALENDLY_URL } from '../../config/site';
+import { PRODUCTS } from '../../config/products';
+import { createCheckoutSession } from '../../utils/stripe';
 import coverImg from '../../assets/reference-ebook/img01.png';
+
+const buy = async () => {
+  if (!PRODUCTS.ebook) return;
+  try { await createCheckoutSession(PRODUCTS.ebook); }
+  catch (e) { alert('Something went wrong starting checkout. Please try again.'); }
+};
 
 const EASE = [0.215, 0.61, 0.355, 1];        // power3.out
 const EASE_INOUT = [0.645, 0.045, 0.355, 1]; // power2.inOut
@@ -55,7 +62,7 @@ export default function EbookHero() {
             learned along the way, with actionable content you can use this week.
           </motion.p>
           <motion.div className="buy" {...rv(2)}>
-            <Button href={CALENDLY_URL}>Buy now for $19.99</Button>
+            <Button onClick={buy} disabled={!PRODUCTS.ebook}>Buy now for $19.99</Button>
             <span className="fine">Instant download. PDF format.</span>
           </motion.div>
         </div>

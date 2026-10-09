@@ -11,6 +11,7 @@ import Footer from '../../components/ui/Footer';
 import { Button } from '../../components/ui/Button';
 import { up, blur } from '../../components/ui/motionPresets';
 import { CALENDLY_URL } from '../../config/site';
+import { API_BASE_URL } from '../../config/api';
 
 const EASE = [0.215, 0.61, 0.355, 1];
 const EASE_INOUT = [0.645, 0.045, 0.355, 1];
@@ -32,6 +33,8 @@ const HEADLINE = 'Free weekly workout programme';
 
 export default function FreeWorkoutPage() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
 
@@ -63,10 +66,25 @@ export default function FreeWorkoutPage() {
     };
   }, []);
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     if (!e.target.reportValidity()) return;
-    // TODO: POST { firstName, email } to the Mailchimp subscribe endpoint.
+    setError('');
+    setSending(true);
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/subscribe`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, firstName }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.success === false) throw new Error(data.message || 'Failed');
+    } catch (err) {
+      setSending(false);
+      setError('Something went wrong. Please try again.');
+      return;
+    }
+    setSending(false);
     setSent(true);
   };
 
@@ -130,7 +148,8 @@ export default function FreeWorkoutPage() {
                       <label htmlFor="em">Email address</label>
                       <input id="em" type="email" placeholder="Where should I send it?" required value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
-                    <button className="btn" type="submit">Send me my workouts</button>
+                    <button className="btn" type="submit" disabled={sending}>{sending ? 'Sending…' : 'Send me my workouts'}</button>
+                    {error && <p className="fine" style={{ color: '#ff6b6b' }}>{error}</p>}
                     <p className="fine">One email with the programme, then the occasional useful thing. Unsubscribe any time.</p>
                   </form>
                 ) : (

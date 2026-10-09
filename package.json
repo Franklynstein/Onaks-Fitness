@@ -6,6 +6,8 @@
     "api-server": "node api-server.js",
     "api-server-db": "node api-server-db.js",
     "build": "vite build",
+    "dev:web": "vite",
+    "package": "vite build && cd dist && zip -qr ../onaks-site.zip .",
     "preview": "vite preview",
     "test-email": "node test-mailchimp.js",
     "start": "node api-server-db.js",

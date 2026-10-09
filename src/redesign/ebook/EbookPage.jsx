@@ -11,6 +11,8 @@ import Footer from '../../components/ui/Footer';
 import BeforeAfterWipe from '../../components/ui/BeforeAfterWipe';
 import { Button } from '../../components/ui/Button';
 import { up, blur, right, clip, EASE } from '../../components/ui/motionPresets';
+import { PRODUCTS } from '../../config/products';
+import { createCheckoutSession } from '../../utils/stripe';
 import EbookHero from './EbookHero';
 
 import videoPoster from '../../assets/reference-ebook/img02.jpg';
@@ -18,7 +20,11 @@ import beforeImg from '../../assets/reference-ebook/img03.jpg';
 import afterImg from '../../assets/reference-ebook/img04.jpg';
 import guarPic from '../../assets/reference-ebook/img05.jpg';
 
-const BUY = '#'; // TODO: wire to Stripe checkout
+const buy = async () => {
+  if (!PRODUCTS.ebook) return;
+  try { await createCheckoutSession(PRODUCTS.ebook); }
+  catch (e) { alert('Something went wrong starting checkout. Please try again.'); }
+};
 
 const Check = () => (
   <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
@@ -195,7 +201,7 @@ export default function EbookPage() {
                 ))}
               </motion.div>
               <motion.p {...up} style={{ textAlign: 'center', marginTop: 36 }}>
-                <Button href={BUY}>Buy now for $19.99</Button>
+                <Button onClick={buy} disabled={!PRODUCTS.ebook}>Buy now for $19.99</Button>
               </motion.p>
             </div>
           </section>
@@ -267,7 +273,7 @@ export default function EbookPage() {
                 Learn the exact system I used to drop from 101kg to 78kg and discover how you can apply
                 these strategies to your own journey.
               </motion.p>
-              <motion.p {...up}><Button href={BUY}>Get the ebook now for $19.99</Button></motion.p>
+              <motion.p {...up}><Button onClick={buy} disabled={!PRODUCTS.ebook}>Get the ebook now for $19.99</Button></motion.p>
               <motion.div className="trust" {...up}>
                 <span><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2" /><path d="M8 10V7a4 4 0 018 0v3" /></svg>Secure payment</span>
                 <span><svg viewBox="0 0 24 24"><path d="M12 3v12M6 11l6 6 6-6M4 21h16" /></svg>Instant download</span>

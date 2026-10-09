@@ -10,9 +10,15 @@ import { CONTACT_EMAIL, INSTAGRAM_URL, TIKTOK_URL } from '../../config/site';
 
 export default function ContactPage() {
   const [sent, setSent] = useState(false);
+  // The old backend had no contact endpoint, so this opens the visitor's email
+  // client prefilled. Swap for a real api.onaksfitness.com endpoint if you add one.
   const onSubmit = (e) => {
     e.preventDefault();
-    // Unwired for now, per the "links later" plan.
+    const f = e.target;
+    const name = `${f.firstName.value} ${f.lastName.value}`.trim();
+    const subject = `Website enquiry from ${name || 'the Onaks site'}`;
+    const body = `Name: ${name}\nEmail: ${f.email.value}\nPhone: ${f.phone.value}\n\n${f.message.value}`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   };
 

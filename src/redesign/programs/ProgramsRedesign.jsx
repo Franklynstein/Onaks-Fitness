@@ -11,8 +11,21 @@ import Footer from '../../components/ui/Footer';
 import { Button, GhostButton } from '../../components/ui/Button';
 import { up, blur } from '../../components/ui/motionPresets';
 import { CALENDLY_URL } from '../../config/site';
+import { PRODUCTS } from '../../config/products';
+import { createCheckoutSession } from '../../utils/stripe';
 
 import ebookCover from '../../assets/reference-programs/img01.png';
+
+// Start Stripe checkout for a backend product id. Buttons stay disabled until the
+// id is filled in src/config/products.js.
+const buy = async (id) => {
+  if (!id) return;
+  try {
+    await createCheckoutSession(id);
+  } catch (e) {
+    alert('Something went wrong starting checkout. Please try again.');
+  }
+};
 
 const EASE = [0.215, 0.61, 0.355, 1];
 const EASE_INOUT = [0.645, 0.045, 0.355, 1];
@@ -49,7 +62,9 @@ function ShopCard({ title, vegan, options, item = true }) {
           </label>
         ))}
       </div>
-      <a className="btn buy" href="#">Buy {o.name} for ${o.price}</a>
+      <button className="btn buy" type="button" onClick={() => buy(o.id)} disabled={!o.id}>
+        Buy {o.name} for ${o.price}
+      </button>
     </motion.article>
   );
 }
@@ -125,14 +140,14 @@ export default function ProgramsRedesign() {
               </motion.div>
               <motion.div className="shops" {...staggerBox}>
                 <ShopCard title="Male programmes" options={[
-                  { name: 'Fat loss programme', price: '13.99' },
-                  { name: 'Muscle building', price: '13.99' },
-                  { name: 'Body recomposition', price: '13.99' },
+                  { name: 'Fat loss programme', price: '13.99', id: PRODUCTS.maleFatLoss },
+                  { name: 'Muscle building', price: '13.99', id: PRODUCTS.maleMuscle },
+                  { name: 'Body recomposition', price: '13.99', id: PRODUCTS.maleRecomp },
                 ]} />
                 <ShopCard title="Female programmes" options={[
-                  { name: 'Fat loss programme', price: '13.99' },
-                  { name: 'Muscle building', price: '13.99' },
-                  { name: 'Body recomposition', price: '14.99' },
+                  { name: 'Fat loss programme', price: '13.99', id: PRODUCTS.femaleFatLoss },
+                  { name: 'Muscle building', price: '13.99', id: PRODUCTS.femaleMuscle },
+                  { name: 'Body recomposition', price: '14.99', id: PRODUCTS.femaleRecomp },
                 ]} />
               </motion.div>
 
@@ -148,7 +163,7 @@ export default function ProgramsRedesign() {
                   <h3>Glute Max programme</h3>
                   <p>Specialised training for glute development and lower body toning. Progressive, structured, and built to actually grow something.</p>
                 </div>
-                <a className="btn" href="#">Buy now for $11.99</a>
+                <button className="btn" type="button" onClick={() => buy(PRODUCTS.gluteMax)} disabled={!PRODUCTS.gluteMax}>Buy now for $11.99</button>
               </motion.div>
             </div>
           </section>
@@ -162,17 +177,17 @@ export default function ProgramsRedesign() {
               </motion.div>
               <motion.div className="shops" {...staggerBox}>
                 <ShopCard title="Weight loss" options={[
-                  { name: 'Mild weight loss', price: '13.99' },
-                  { name: 'Standard weight loss', price: '13.99' },
-                  { name: 'Accelerated weight loss', price: '13.99' },
+                  { name: 'Mild weight loss', price: '13.99', id: PRODUCTS.groceryWeightLossMild },
+                  { name: 'Standard weight loss', price: '13.99', id: PRODUCTS.groceryWeightLossStandard },
+                  { name: 'Accelerated weight loss', price: '13.99', id: PRODUCTS.groceryWeightLossAccelerated },
                 ]} />
-                <ShopCard title="Bulking" options={[{ name: 'Lean bulk', price: '13.99' }]} />
+                <ShopCard title="Bulking" options={[{ name: 'Lean bulk', price: '13.99', id: PRODUCTS.groceryLeanBulk }]} />
                 <ShopCard title="Weight loss" vegan options={[
-                  { name: 'Vegan mild', price: '13.99' },
-                  { name: 'Vegan standard', price: '13.99' },
-                  { name: 'Vegan accelerated', price: '13.99' },
+                  { name: 'Vegan mild', price: '13.99', id: PRODUCTS.veganMild },
+                  { name: 'Vegan standard', price: '13.99', id: PRODUCTS.veganStandard },
+                  { name: 'Vegan accelerated', price: '13.99', id: PRODUCTS.veganAccelerated },
                 ]} />
-                <ShopCard title="Bulking" vegan options={[{ name: 'Vegan lean bulk', price: '13.99' }]} />
+                <ShopCard title="Bulking" vegan options={[{ name: 'Vegan lean bulk', price: '13.99', id: PRODUCTS.veganLeanBulk }]} />
               </motion.div>
             </div>
           </section>
@@ -190,14 +205,14 @@ export default function ProgramsRedesign() {
                   <h3>Weight loss combo</h3>
                   <p>Weight loss grocery lists and training programme</p>
                   <div className="cp">$14.99</div>
-                  <a className="btn" href="#">Buy now</a>
+                  <button className="btn" type="button" onClick={() => buy(PRODUCTS.comboWeightLoss)} disabled={!PRODUCTS.comboWeightLoss}>Buy now</button>
                 </motion.article>
                 <motion.article className="shop combo" variants={staggerItem.variants}>
                   <span className="flag">Save</span>
                   <h3>Lean bulking combo</h3>
                   <p>Lean bulking grocery lists and training programme</p>
                   <div className="cp">$14.99</div>
-                  <a className="btn" href="#">Buy now</a>
+                  <button className="btn" type="button" onClick={() => buy(PRODUCTS.comboLeanBulk)} disabled={!PRODUCTS.comboLeanBulk}>Buy now</button>
                 </motion.article>
               </motion.div>
             </div>
@@ -217,7 +232,7 @@ export default function ProgramsRedesign() {
                     <li><Tick /><span>My progressive workout strategy</span></li>
                   </ul>
                   <div className="buy">
-                    <Button href="#">Buy now for $14.99</Button>
+                    <Button onClick={() => buy(PRODUCTS.ebook)} disabled={!PRODUCTS.ebook}>Buy now for $14.99</Button>
                     <GhostButton to="/ebook">Read more</GhostButton>
                   </div>
                 </div>

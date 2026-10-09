@@ -15,6 +15,10 @@ import Select from '../../components/ui/Select';
 import FormConfirmation from '../../components/ui/FormConfirmation';
 import { left, right, blur } from '../../components/ui/motionPresets';
 import { CALENDLY_URL } from '../../config/site';
+import { API_BASE_URL } from '../../config/api';
+
+// Map the activity multiplier back to the key the backend email expects.
+const ACTIVITY_KEY = { '1.2': 'sedentary', '1.375': 'light', '1.55': 'moderate', '1.725': 'active', '1.9': 'veryActive' };
 
 const EASE = [0.215, 0.61, 0.355, 1];
 const stepsContainer = {
@@ -46,6 +50,8 @@ export default function CalculatorPage() {
   const [goal, setGoal] = useState('lose');
   const [pace, setPace] = useState(18);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
   const formRef = useRef(null);
   const resultRef = useRef(null);
 
@@ -75,7 +81,7 @@ export default function CalculatorPage() {
     };
   }, []);
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (!formRef.current.reportValidity()) return;
 
@@ -89,13 +95,38 @@ export default function CalculatorPage() {
     if (goal === 'lose') kcal = tdee * (1 - p);
     if (goal === 'gain') kcal = tdee * 1.1;
     kcal = Math.max(kcal, sex === 'm' ? 1500 : 1200);
-    const pro = Math.round(w * (goal === 'lose' ? 2.0 : 1.8));
-    const fat = Math.round(Math.max(w * 0.7, (kcal * 0.25) / 9));
-    const carb = Math.max(0, Math.round((kcal - pro * 4 - fat * 9) / 4));
 
-    // TODO: POST { email, kcal, pro, carb, fat } to the email tool (wired later).
-    void { kcal: Math.round(kcal), pro, carb, fat };
+    const payload = {
+      bmr: Math.round(bmr),
+      tdee: Math.round(tdee),
+      dailyCalories: Math.round(kcal),
+      userDetails: {
+        gender: sex === 'm' ? 'male' : 'female',
+        age: a,
+        weight: parseFloat(weight),
+        height: h,
+        activityLevel: ACTIVITY_KEY[act] || 'moderate',
+        goal,
+        weightUnit: unit,
+        email,
+      },
+    };
 
+    setError('');
+    setSending(true);
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/send-calorie-results`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error('Failed to send');
+    } catch (err) {
+      setSending(false);
+      setError('Something went wrong sending your results. Please try again.');
+      return;
+    }
+    setSending(false);
     setSubmitted(true);
     if (window.innerWidth < 860 && resultRef.current) {
       resultRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -175,12 +206,12 @@ export default function CalculatorPage() {
                   </div>
                 )}
 
-                <button className="btn" id="go" type="submit" disabled={submitted} style={{ justifyContent: 'center' }}>
-                  {submitted ? 'Sent' : 'Calculate and send results'}
+                <button className="btn" id="go" type="submit" disabled={sending || submitted} style={{ justifyContent: 'center' }}>
+                  {submitted ? 'Sent' : sending ? 'Sending…' : 'Calculate and send results'}
                 </button>
-                <p className="hint" style={{ marginTop: -6 }}>
-                  Your results land in your inbox within a couple of minutes.
-                </p>
+                {error
+                  ? <p className="hint" style={{ marginTop: -6, color: '#ff6b6b' }}>{error}</p>
+                  : <p className="hint" style={{ marginTop: -6 }}>Your results land in your inbox within a couple of minutes.</p>}
               </motion.form>
 
               <motion.div className="result" ref={resultRef} {...right}>
