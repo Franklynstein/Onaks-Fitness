@@ -19,3 +19,5 @@ branch_structure.json
 design-reference/onaks-design-handoff/
 
 node_modules
+
+.claude/worktrees/
