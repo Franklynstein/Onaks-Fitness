@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import HomePage from './redesign/home/HomePage'
 import ProgramsRedesign from './redesign/programs/ProgramsRedesign'
 import EbookPage from './redesign/ebook/EbookPage'
@@ -15,9 +16,23 @@ import ForgotPasswordPage from './redesign/auth/ForgotPasswordPage'
 import ResetPasswordPage from './redesign/auth/ResetPasswordPage'
 import AdminPage from './redesign/admin/AdminPage'
 
+// Scroll to top on route change; scroll to the section when navigating to a hash.
+function ScrollManager() {
+  const { pathname, hash } = useLocation()
+  useEffect(() => {
+    if (hash) {
+      const el = document.getElementById(hash.slice(1))
+      if (el) { const t = setTimeout(() => el.scrollIntoView({ block: 'start' }), 60); return () => clearTimeout(t) }
+    }
+    window.scrollTo(0, 0)
+  }, [pathname, hash])
+  return null
+}
+
 function App() {
   return (
     <Router>
+      <ScrollManager />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/programs" element={<ProgramsRedesign />} />

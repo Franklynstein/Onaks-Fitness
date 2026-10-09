@@ -15,7 +15,7 @@
 /* form fields (wrap a form in class "form") */
 .onaks .form{display:grid;gap:22px}
 .onaks .form label{display:block;font-weight:600;font-size:14px;margin-bottom:8px;color:var(--muted)}
-.onaks .form input[type=number],.onaks .form input[type=email],.onaks .form input[type=text],.onaks .form input[type=password],.onaks .form select,.onaks .form textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--white);font:inherit;font-size:17px;padding:16px 18px;border-radius:16px;outline:none;transition:border-color .3s;appearance:none}
+.onaks .form input[type=number],.onaks .form input[type=email],.onaks .form input[type=text],.onaks .form input[type=tel],.onaks .form input[type=password],.onaks .form select,.onaks .form textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--white);font:inherit;font-size:17px;padding:16px 18px;border-radius:16px;outline:none;transition:border-color .3s;appearance:none}
 .onaks .form input:focus,.onaks .form select:focus,.onaks .form textarea:focus{border-color:var(--green)}
 .onaks .form input[type=number]{-moz-appearance:textfield}
 .onaks .form textarea{min-height:140px;resize:vertical}
@@ -68,6 +68,7 @@
 .onaks .contact-info a{color:var(--white)}
 .onaks .contact-info a:hover{color:var(--green)}
 .onaks .contact-info .lbl{color:var(--muted);font-size:14px;margin-bottom:4px}
+.onaks .contact-grid .form .btn{justify-self:start}
 @media(max-width:860px){.onaks .contact-grid{grid-template-columns:1fr}}
 
 .onaks .center-card{max-width:620px;margin:0 auto;text-align:center}

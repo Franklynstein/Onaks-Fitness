@@ -12,9 +12,9 @@ export default function Footer() {
             <h4>Coaching</h4>
             <ul>
               <li><Link to="/programs">Programmes</Link></li>
-              <li><a href="#results">Results</a></li>
-              <li><a href="#reviews">Client reviews</a></li>
-              <li><a href="#faq">FAQ</a></li>
+              <li><Link to="/#results">Results</Link></li>
+              <li><Link to="/#reviews">Client reviews</Link></li>
+              <li><Link to="/#faq">FAQ</Link></li>
             </ul>
           </div>
           <div>
@@ -28,7 +28,6 @@ export default function Footer() {
           <div>
             <h4>Company</h4>
             <ul>
-              <li><Link to="/contact">Contact</Link></li>
               <li><Link to="/privacy-policy">Privacy policy</Link></li>
               <li><Link to="/terms-of-service">Terms of service</Link></li>
             </ul>

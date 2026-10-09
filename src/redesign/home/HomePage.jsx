@@ -18,6 +18,7 @@ import { up, blur, left, right, clip, featContainer, featItem } from '../../comp
 import Hero from './Hero';
 import Counter from './Counter';
 import { CALENDLY_URL } from '../../config/site';
+import { VIDEOS } from '../../config/videos';
 
 // Exact approved visuals, extracted from design-reference/home.html (document order).
 import heroPhoto from '../../assets/reference/img01.png';
@@ -33,6 +34,37 @@ import journeyPic from '../../assets/reference/img09.jpg';
 const Check = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
 );
+
+const REVIEWS = [
+  { img: review1, alt: 'Bayo, client video review', name: 'Bayo, 25', caption: 'Fat loss, 1 on 1 coaching', videoId: VIDEOS.review1 },
+  { img: review2, alt: 'Anjola, client video review', name: 'Anjola, 21', caption: 'Fat loss and strength, 1 on 1 coaching', videoId: VIDEOS.review2 },
+  { img: review3, alt: 'Client video review', name: 'Your next client', caption: 'More reviews coming soon', videoId: VIDEOS.review3 },
+];
+
+// Review thumbnail that swaps to the YouTube video on click (only if a videoId is set).
+function ReviewVideo({ img, alt, videoId }) {
+  const [play, setPlay] = useState(false);
+  return (
+    <div className="thumb">
+      {play && videoId ? (
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`}
+          title="Client review" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
+        />
+      ) : (
+        <>
+          <img src={img} alt={alt} />
+          {videoId && (
+            <button className="pl" aria-label="Play review" onClick={() => setPlay(true)}>
+              <span><svg viewBox="0 0 24 24"><path d="M6 3l15 9-15 9z" /></svg></span>
+            </button>
+          )}
+        </>
+      )}
+    </div>
+  );
+}
 
 const FAQS = [
   ['Who is this coaching for?', "Anyone who's serious about losing fat and keeping it off. Whether you're just starting out, you've been going to the gym for years without seeing results, or you've lost weight before and want to do it properly this time, I tailor everything to where you're at now and where you want to get to."],
@@ -138,7 +170,7 @@ export default function HomePage() {
           {/* PROGRAMME VIDEO */}
           <section className="sec vid" id="program" data-tone="#131a1f">
             <div className="wrap grid">
-              <PhoneFrame screenSrc={phoneScreen} entrance={left} />
+              <PhoneFrame screenSrc={phoneScreen} entrance={left} videoId={VIDEOS.coaching} />
               <motion.div className="copy" {...up}>
                 <motion.h2 {...blur}>How the coaching works</motion.h2>
                 <p className="lead" style={{ marginTop: 18 }}>
@@ -214,18 +246,12 @@ export default function HomePage() {
           <section className="sec rev" id="reviews" data-tone="#141a16">
             <div className="wrap"><motion.div className="sec-head" {...up}><motion.h2 {...blur}>Clients, in their own words</motion.h2></motion.div></div>
             <ReviewsCarousel>
-              <figure>
-                <div className="thumb"><img src={review1} alt="Bayo, client video review" /><a className="pl" href="#" aria-label="Play Bayo's review"><span><svg viewBox="0 0 24 24"><path d="M6 3l15 9-15 9z" /></svg></span></a></div>
-                <figcaption><b>Bayo, 25</b><span>Fat loss, 1 on 1 coaching</span></figcaption>
-              </figure>
-              <figure>
-                <div className="thumb"><img src={review2} alt="Anjola, client video review" /><a className="pl" href="#" aria-label="Play Anjola's review"><span><svg viewBox="0 0 24 24"><path d="M6 3l15 9-15 9z" /></svg></span></a></div>
-                <figcaption><b>Anjola, 21</b><span>Fat loss and strength, 1 on 1 coaching</span></figcaption>
-              </figure>
-              <figure>
-                <div className="thumb"><img src={review3} alt="Client video review" /><a className="pl" href="#" aria-label="Play review"><span><svg viewBox="0 0 24 24"><path d="M6 3l15 9-15 9z" /></svg></span></a></div>
-                <figcaption><b>Your next client</b><span>Placeholder, send me more review videos</span></figcaption>
-              </figure>
+              {REVIEWS.map((r) => (
+                <figure key={r.name}>
+                  <ReviewVideo img={r.img} alt={r.alt} videoId={r.videoId} />
+                  <figcaption><b>{r.name}</b><span>{r.caption}</span></figcaption>
+                </figure>
+              ))}
               <figure className="cta-card">
                 <div><h3>Your review could be the next one here.</h3><GhostButton href={CALENDLY_URL}>Book a free call</GhostButton></div>
               </figure>

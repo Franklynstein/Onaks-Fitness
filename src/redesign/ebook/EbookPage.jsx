@@ -14,7 +14,7 @@ import { up, blur, right, clip, EASE } from '../../components/ui/motionPresets';
 import { PRODUCTS } from '../../config/products';
 import { createCheckoutSession } from '../../utils/stripe';
 import { usePrices } from '../../hooks/usePrices';
-import { YOUTUBE_VIDEO_ID } from '../../config/site';
+import { VIDEOS } from '../../config/videos';
 import EbookHero from './EbookHero';
 
 import videoPoster from '../../assets/reference-ebook/img02.jpg';
@@ -82,17 +82,19 @@ function VideoBox() {
   const [playing, setPlaying] = useState(false);
   return (
     <motion.div className="vidbox" {...up}>
-      {playing ? (
+      {playing && VIDEOS.ebook ? (
         <iframe
-          src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&playsinline=1`}
+          src={`https://www.youtube.com/embed/${VIDEOS.ebook}?autoplay=1&rel=0&playsinline=1`}
           title="Build Different" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen
         />
       ) : (
         <>
           <img src={videoPoster} alt="" />
-          <button className="play" aria-label="Play" onClick={() => setPlaying(true)}>
-            <span><svg viewBox="0 0 24 24"><path d="M6 3l15 9-15 9z" /></svg></span>
-          </button>
+          {VIDEOS.ebook && (
+            <button className="play" aria-label="Play" onClick={() => setPlaying(true)}>
+              <span><svg viewBox="0 0 24 24"><path d="M6 3l15 9-15 9z" /></svg></span>
+            </button>
+          )}
         </>
       )}
     </motion.div>

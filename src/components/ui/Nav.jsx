@@ -59,7 +59,7 @@ export default function Nav() {
               </div>
             </li>
             <li><Link to="/ebook">Ebook</Link></li>
-            <li><a href="#results">Results</a></li>
+            <li><Link to="/#results">Results</Link></li>
           </ul>
           <div className="right">
             <a href={CALENDLY_URL} className="btn" target="_blank" rel="noreferrer">Book a free call</a>
@@ -84,8 +84,8 @@ export default function Nav() {
           <Link to="/workout" onClick={closeMenu}>Free workout programme</Link>
         </div>
         <Link to="/ebook" onClick={closeMenu}>Ebook</Link>
-        <a href="#results" onClick={closeMenu}>Results</a>
-        <a href="#reviews" onClick={closeMenu}>Client reviews</a>
+        <Link to="/#results" onClick={closeMenu}>Results</Link>
+        <Link to="/#reviews" onClick={closeMenu}>Client reviews</Link>
         <a href={CALENDLY_URL} className="btn" onClick={closeMenu}>Book a free call</a>
       </nav>
     </>
