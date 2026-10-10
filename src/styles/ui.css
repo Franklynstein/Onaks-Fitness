@@ -1,0 +1,84 @@
+/* Shared Onaks UI: subpage hero, form fields, segmented control, confirmation panel.
+   Loaded on every .onaks page via @import in onaks.css, so the shared components
+   (PageHero, Input, Select, SegmentedControl, FormConfirmation) work on any page. */
+
+/* subpage hero (eyebrow + h1 + lead over a sweep) */
+.onaks .ph{position:relative;padding:clamp(140px,18vh,200px) 0 clamp(48px,7vw,88px);overflow:hidden}
+.onaks .ph .sweep{position:absolute;inset:0;pointer-events:none}
+.onaks .ph .sweep svg{width:100%;height:100%}
+.onaks .ph .eyebrow{display:inline-block;font-weight:700;font-size:14px;color:var(--green);margin-bottom:18px}
+.onaks .ph h1{font-size:clamp(42px,6.4vw,88px);max-width:12em}
+.onaks .ph p.lead{margin-top:22px}
+.onaks .ph h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;margin-right:.22em}
+.onaks .ph h1 .w span{display:inline-block;transform:translateY(110%)}
+
+/* form fields (wrap a form in class "form") */
+.onaks .form{display:grid;gap:22px}
+.onaks .form label{display:block;font-weight:600;font-size:14px;margin-bottom:8px;color:var(--muted)}
+.onaks .form input[type=number],.onaks .form input[type=email],.onaks .form input[type=text],.onaks .form input[type=password],.onaks .form select,.onaks .form textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--white);font:inherit;font-size:17px;padding:16px 18px;border-radius:16px;outline:none;transition:border-color .3s;appearance:none}
+.onaks .form input:focus,.onaks .form select:focus,.onaks .form textarea:focus{border-color:var(--green)}
+.onaks .form input[type=number]{-moz-appearance:textfield}
+.onaks .form textarea{min-height:140px;resize:vertical}
+.onaks .form select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F4F6F4' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:18px}
+.onaks .form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.onaks .form input[type=range]{width:100%;accent-color:var(--green);margin-top:10px}
+.onaks .form .hint{font-size:13px;color:var(--muted);margin-top:8px}
+.onaks .form input::placeholder,.onaks .form textarea::placeholder{color:rgba(155,163,157,.7)}
+
+/* segmented control */
+.onaks .seg{display:flex;gap:8px;background:rgba(255,255,255,.04);padding:6px;border-radius:999px;border:1px solid var(--line)}
+.onaks .seg button{flex:1;padding:12px;border-radius:999px;font-weight:700;color:var(--muted);transition:background .3s,color .3s}
+.onaks .seg button.on{background:var(--ignite);color:#081108}
+.onaks .seg.mini{padding:4px;min-width:124px}
+.onaks .seg.mini button{padding:8px 12px;font-size:14px}
+
+/* confirmation panel (FormConfirmation) */
+.onaks .tick{width:56px;height:56px;border-radius:50%;background:var(--ignite);display:grid;place-items:center;margin-bottom:18px}
+.onaks .tick svg{width:26px;height:26px;fill:none;stroke:#081108;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.onaks .filled h3{font-size:24px}
+.onaks .filled .tip{margin-top:22px;color:var(--muted);font-size:14.5px;line-height:1.55}
+.onaks .filled .inc{list-style:none;margin-top:22px;display:grid;gap:12px}
+.onaks .filled .inc li{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:15px}
+.onaks .filled .inc svg{flex:none;width:20px;height:20px;margin-top:3px;fill:none;stroke:url(#ig);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.onaks .filled .btn{margin-top:22px;width:100%;justify-content:center}
+
+/* ---- aux pages (privacy/terms prose, auth card, contact, success/404) ---- */
+.onaks .prose{max-width:760px;color:var(--muted);font-size:16.5px;line-height:1.7}
+.onaks .prose h2{color:var(--white);font-size:clamp(22px,2.4vw,28px);margin:40px 0 14px}
+.onaks .prose h2:first-child{margin-top:0}
+.onaks .prose h3{color:var(--white);font-size:19px;margin:26px 0 10px}
+.onaks .prose p{margin-bottom:16px}
+.onaks .prose ul{margin:0 0 16px 22px;display:grid;gap:8px}
+.onaks .prose a{color:var(--green)}
+.onaks .prose strong{color:var(--white)}
+
+.onaks .authwrap{min-height:72vh;display:grid;place-items:center;padding:clamp(120px,16vh,180px) 0 clamp(60px,9vw,110px)}
+.onaks .auth-card{width:min(100%,440px);border-radius:28px;padding:clamp(28px,4vw,40px);border:1px solid transparent;background:linear-gradient(var(--black),var(--black)) padding-box,var(--ignite) border-box;position:relative;z-index:1}
+.onaks .auth-card h1{font-size:clamp(28px,3.4vw,38px)}
+.onaks .auth-card .sub{color:var(--muted);margin-top:10px;margin-bottom:26px}
+.onaks .auth-card form{display:grid;gap:16px}
+.onaks .auth-card .btn{width:100%;justify-content:center;margin-top:6px}
+.onaks .auth-card .alt{margin-top:22px;color:var(--muted);font-size:14.5px;text-align:center}
+.onaks .auth-card .alt a{color:var(--green);font-weight:600}
+.onaks .auth-card .muted-link{display:inline-block;margin-top:2px;color:var(--muted);font-size:13.5px}
+.onaks .auth-card .muted-link:hover{color:var(--green)}
+
+.onaks .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:start}
+.onaks .contact-info{display:grid;gap:22px}
+.onaks .contact-info a{color:var(--white)}
+.onaks .contact-info a:hover{color:var(--green)}
+.onaks .contact-info .lbl{color:var(--muted);font-size:14px;margin-bottom:4px}
+@media(max-width:860px){.onaks .contact-grid{grid-template-columns:1fr}}
+
+.onaks .center-card{max-width:620px;margin:0 auto;text-align:center}
+.onaks .center-card .tick{margin:0 auto 18px}
+.onaks .center-card .btn{margin-top:26px}
+
+/* reduced-motion internal shell (admin) */
+.onaks.reduced{min-height:100vh}
+.onaks.reduced .admin{padding:clamp(100px,12vh,130px) 0 80px}
+.onaks .panel{border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.025);padding:clamp(20px,3vw,32px)}
+.onaks .panel + .panel{margin-top:20px}
+.onaks .tbl{width:100%;border-collapse:collapse;font-size:15px}
+.onaks .tbl th,.onaks .tbl td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
+.onaks .tbl th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}

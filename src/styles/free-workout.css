@@ -1,0 +1,28 @@
+/* Free workout page-specific styles.
+   Shared hero/form/tick rules now live in ui.css. */
+
+/* steps */
+.onaks .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.onaks .step{padding:30px 26px;border-radius:24px;border:1px solid var(--line);background:rgba(255,255,255,.025);position:relative}
+.onaks .step::before{counter-increment:s;content:"0" counter(s);display:block;font-size:13px;font-weight:800;background:var(--ignite);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:16px;letter-spacing:.04em}
+.onaks .step p{color:var(--muted);margin-top:8px;font-size:15.5px}
+@media(max-width:900px){.onaks .steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.onaks .steps{grid-template-columns:1fr!important}}
+
+.onaks .rule{height:1px;background:var(--line);margin:clamp(56px,8vw,96px) 0}
+
+/* lead capture */
+.onaks .capture{border-radius:30px;padding:clamp(32px,5vw,56px);border:1px solid transparent;background:linear-gradient(var(--black),var(--black)) padding-box,var(--ignite) border-box;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.onaks .capture form{display:grid;gap:14px}
+.onaks .capture label{display:block;font-weight:600;font-size:14px;margin-bottom:8px;color:var(--muted)}
+.onaks .capture .inc{list-style:none;margin-top:22px;display:grid;gap:12px}
+.onaks .capture .inc li{display:flex;gap:12px;align-items:flex-start;color:var(--muted)}
+.onaks .capture .inc svg{flex:none;width:20px;height:20px;margin-top:3px;fill:none;stroke:url(#ig);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.onaks .capture input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--white);font:inherit;font-size:17px;padding:16px 18px;border-radius:16px;outline:none}
+.onaks .capture input:focus{border-color:var(--green)}
+.onaks .capture input::placeholder{color:rgba(155,163,157,.7)}
+.onaks .capture .btn{justify-content:center}
+.onaks .capture .fine{font-size:13px;color:var(--muted)}
+.onaks .capture .done p{color:var(--muted);margin-top:8px}
+.onaks .capture .done .inc{margin-top:18px}
+@media(max-width:860px){.onaks .capture{grid-template-columns:1fr}}
